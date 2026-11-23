@@ -3,7 +3,7 @@
 - **العنوان:** `NOVA ESTATE — شركة تسويق عقاري`
 - **النوع:** `Concept / Self-initiated Project` — مشروع مفهومي ذاتي المبادرة لم يُنفَّذ لصالح عميل تجاري حقيقي.
 - **المجال:** Luxury Editorial Real Estate Web Application
-- **اللغة والاتجاه:** العربية (`RTL`) مع تنسيق لاتيني ورقمي دقيق (`Playfair Display` + `Inter tabular-nums` + `IBM Plex Sans Arabic`).
+- **اللغة والاتجاه:** العربية (`RTL`) مع تنسيق لاتيني ورقمي دقيق (`Playfair Display` + `Inter tabular-nums` + `Tajawal`).
 
 ---
 
@@ -39,7 +39,7 @@
 
 - **الواجهة الأمامية:** `HTML5`, `CSS3` (`Custom Properties`, `CSS Grid`, `Flexbox`, `clamp()`), `Vanilla JavaScript (ES6+ Modules)`
 - **البيانات والأصول:** `Local JSON` (`fetch()`), `Local SVG Sprite` (`assets/icons/sprite.svg`), `Local Architectural SVGs`
-- **الخطوط:** `Playfair Display` + `Inter (tabular-nums)` + `IBM Plex Sans Arabic`
+- **الخطوط:** `Playfair Display` + `Inter (tabular-nums)` + `Tajawal`
 - **إدارة النسخ والاستضافة:** `Git`, `GitHub`, `Cloudflare Pages`
 
 ---

@@ -63,11 +63,11 @@
   --focus-ring: 0 0 0 3px rgba(185, 154, 87, 0.48);
 
   /* ------------------------------------------------------------------------
-     2. TYPOGRAPHY (Playfair Display + Inter + IBM Plex Sans Arabic)
+     2. TYPOGRAPHY (Playfair Display + Inter + Tajawal)
      ------------------------------------------------------------------------ */
-  --font-display: 'Playfair Display', 'IBM Plex Sans Arabic', Georgia, serif;
-  --font-sans: 'Inter', 'IBM Plex Sans Arabic', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-numeric: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Playfair Display', 'Tajawal', Georgia, serif;
+  --font-sans: 'Tajawal', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-numeric: 'Inter', 'Tajawal', system-ui, -apple-system, sans-serif;
 
   /* Fluid Type Scale */
   --text-h1: clamp(2.15rem, 4.2vw, 3.6rem);
