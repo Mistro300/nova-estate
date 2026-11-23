@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محفظة العقارات الفاخرة (18 وحدة) | NOVA ESTATE</title>
+  <meta name="description" content="تصفح 18 وحدة سكنية وتجارية فاخرة في القاهرة الجديدة، الشيخ زايد، العاصمة الإدارية، والساحل الشمالي مع فلاتر متقدمة للسعر والمساحة وعدد الغرف.">
+  <meta property="og:title" content="محفظة العقارات الفاخرة | NOVA ESTATE">
+  <meta property="og:description" content="فلترة متقدمة للشقق والفيلات والتاون هاوس والوحدات التجارية مع حفظ المفضلة محلياً.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts: Playfair Display + Inter + IBM Plex Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Modular Design System Stylesheets -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body data-page="properties">
+  <a class="skip-link" href="#main-content">تخطي إلى المحتوى الرئيسي</a>
+
+  <!-- ======================================================================
+       SHARED SITE HEADER
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="NOVA ESTATE الصفحة الرئيسية">
+        <span class="brand-logo__en">NOVA <span>ESTATE</span></span>
+        <span class="brand-logo__sub">نوفا إستيت للعقارات الفاخرة</span>
+      </a>
+
+      <nav class="main-nav" id="main-navigation" aria-label="التنقل الرئيسي">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="properties.html" class="nav-link nav-link--active" aria-current="page">العقارات</a></li>
+          <li><a href="developments.html" class="nav-link">المشروعات</a></li>
+          <li><a href="about.html" class="nav-link">عن الشركة</a></li>
+          <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          type="button"
+          class="fav-trigger-btn"
+          id="favorites-toggle-btn"
+          aria-expanded="false"
+          aria-controls="favorites-drawer"
+          aria-label="فتح درج العقارات المفضلة"
+        >
+          <svg class="icon icon--md" aria-hidden="true" focusable="false">
+            <use href="assets/icons/sprite.svg#icon-heart"></use>
+          </svg>
+          <span class="fav-trigger-btn__label">المفضلة</span>
+          <span class="fav-badge" id="favorites-count-badge" aria-live="polite">0</span>
+        </button>
+
+        <button
+          type="button"
+          class="mobile-menu-btn"
+          id="mobile-menu-toggle"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+          aria-label="فتح قائمة التنقل"
+        >
+          <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+            <use href="assets/icons/sprite.svg#icon-menu"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       MAIN CONTENT
+       ====================================================================== -->
+  <main id="main-content">
+    <!-- Page Header Banner -->
+    <section class="page-hero" aria-labelledby="page-heading">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="مسار الصفحة">
+          <a href="index.html">الرئيسية</a>
+          <span aria-hidden="true">/</span>
+          <span class="breadcrumb__current" aria-current="page">العقارات</span>
+        </nav>
+        <h1 id="page-heading" class="page-hero__title">محفظة الوحدات العقارية المختارة</h1>
+        <p class="page-hero__subtitle">
+          استعرض 18 وحدة سكنية وتجارية في 4 وجهات استراتيجية. جميع الفلاتر مرتبطة بعنوان الصفحة (URL) لسهولة الحفظ والمشاركة.
+        </p>
+      </div>
+    </section>
+
+    <!-- Listings & Filters Section -->
+    <section class="section" aria-label="تصفية وعرض العقارات">
+      <div class="container">
+        <!-- Mobile Filter Drawer Backdrop -->
+        <div class="drawer-backdrop" id="filter-backdrop" hidden></div>
+
+        <div class="listings-layout">
+          <!-- ==============================================================
+               FILTER SIDEBAR (Desktop >= 992px) / FILTER DRAWER (Mobile < 992px)
+               ============================================================== -->
+          <aside
+            class="filter-panel"
+            id="filter-drawer"
+            aria-label="فلاتر البحث المتقدمة"
+          >
+            <div class="filter-panel__header">
+              <h2 class="filter-panel__title" id="filter-drawer-title">
+                <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-sliders"></use>
+                </svg>
+                <span>تصفية العقارات</span>
+              </h2>
+              <button
+                type="button"
+                class="filter-panel__close"
+                id="filter-close-btn"
+                aria-label="إغلاق لوحة الفلاتر"
+              >
+                <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-x"></use>
+                </svg>
+              </button>
+            </div>
+
+            <form id="properties-filter-form" class="filter-form" novalidate>
+              <!-- Keyword Search -->
+              <div class="form-group">
+                <label for="filter-q" class="form-label">بحث بالكلمة المفتاحية</label>
+                <input
+                  type="search"
+                  id="filter-q"
+                  name="q"
+                  class="form-control"
+                  placeholder="مثال: جولف، لاجون، التجمع..."
+                  autocomplete="off"
+                >
+              </div>
+
+              <!-- Purpose Filter -->
+              <div class="form-group">
+                <label for="filter-purpose" class="form-label">الغرض العقاري</label>
+                <select id="filter-purpose" name="purpose" class="form-select">
+                  <option value="">الكل (بيع وإيجار)</option>
+                  <option value="sale">للبيع</option>
+                  <option value="rent">للإيجار السنوي</option>
+                </select>
+              </div>
+
+              <!-- City Filter -->
+              <div class="form-group">
+                <label for="filter-city" class="form-label">المدينة / الوجهة</label>
+                <select id="filter-city" name="city" class="form-select">
+                  <option value="">جميع المدن</option>
+                  <option value="القاهرة الجديدة">القاهرة الجديدة</option>
+                  <option value="الشيخ زايد">الشيخ زايد</option>
+                  <option value="العاصمة الإدارية">العاصمة الإدارية</option>
+                  <option value="الساحل الشمالي">الساحل الشمالي</option>
+                </select>
+              </div>
+
+              <!-- Property Type Filter -->
+              <div class="form-group">
+                <label for="filter-type" class="form-label">نوع العقار</label>
+                <select id="filter-type" name="type" class="form-select">
+                  <option value="">جميع الأنواع</option>
+                  <option value="apartment">شقة فاخرة</option>
+                  <option value="villa">فيلا مستقلة</option>
+                  <option value="townhouse">تاون هاوس</option>
+                  <option value="duplex">دوبلكس / بنتهاوس</option>
+                  <option value="commercial">وحدة تجارية / إدارية</option>
+                </select>
+              </div>
+
+              <!-- Development Filter -->
+              <div class="form-group">
+                <label for="filter-development" class="form-label">المشروع العمراني</label>
+                <select id="filter-development" name="developmentId" class="form-select">
+                  <option value="">جميع المشروعات</option>
+                  <option value="dev-001">أوريليا ريزيدنس (القاهرة الجديدة)</option>
+                  <option value="dev-002">سولاريس بارك (الشيخ زايد)</option>
+                  <option value="dev-003">فيرتكس كابيتال (العاصمة الإدارية)</option>
+                  <option value="dev-004">أزور باي (الساحل الشمالي)</option>
+                </select>
+              </div>
+
+              <!-- Price Range Filter (EGP) -->
+              <div class="form-group">
+                <span class="form-label">نطاق السعر (EGP)</span>
+                <div class="filter-range-row">
+                  <div>
+                    <label for="filter-min-price" class="sr-only">أقل سعر بالجنيه</label>
+                    <input
+                      type="number"
+                      id="filter-min-price"
+                      name="minPrice"
+                      class="form-control num-tabular"
+                      placeholder="من (مثال: 500000)"
+                      min="0"
+                      step="100000"
+                    >
+                  </div>
+                  <div>
+                    <label for="filter-max-price" class="sr-only">أعلى سعر بالجنيه</label>
+                    <input
+                      type="number"
+                      id="filter-max-price"
+                      name="maxPrice"
+                      class="form-control num-tabular"
+                      placeholder="إلى (مثال: 45000000)"
+                      min="0"
+                      step="100000"
+                    >
+                  </div>
+                </div>
+                <div class="demo-notice" id="price-swap-notice" role="status" hidden>
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-info"></use>
+                  </svg>
+                  <span>تم تبديل الحد الأدنى والأعلى للسعر تلقائياً لأن القيمة الدنيا كانت أكبر من العليا.</span>
+                </div>
+              </div>
+
+              <!-- Minimum Area Filter (m²) -->
+              <div class="form-group">
+                <label for="filter-min-area" class="form-label">الحد الأدنى للمساحة (m²)</label>
+                <input
+                  type="number"
+                  id="filter-min-area"
+                  name="minArea"
+                  class="form-control num-tabular"
+                  placeholder="مثال: 150"
+                  min="0"
+                  step="10"
+                >
+              </div>
+
+              <!-- Minimum Bedrooms Filter -->
+              <div class="form-group">
+                <label for="filter-bedrooms" class="form-label">عدد غرف النوم (على الأقل)</label>
+                <select id="filter-bedrooms" name="bedrooms" class="form-select">
+                  <option value="">غير محدد (يشمل الإداري والتجاري)</option>
+                  <option value="2">2 غرف نوم فأكثر</option>
+                  <option value="3">3 غرف نوم فأكثر</option>
+                  <option value="4">4 غرف نوم فأكثر</option>
+                  <option value="5">5 غرف نوم فأكثر</option>
+                </select>
+              </div>
+
+              <!-- Availability Status Filter -->
+              <div class="form-group">
+                <label for="filter-status" class="form-label">حالة التوفر</label>
+                <select id="filter-status" name="status" class="form-select">
+                  <option value="">جميع الحالات</option>
+                  <option value="available">متاح للحجز فقط</option>
+                  <option value="reserved">محجوز مبدئياً</option>
+                  <option value="sold">تم البيع</option>
+                </select>
+              </div>
+
+              <!-- Favorites Only Toggle -->
+              <label class="filter-check-row" for="filter-favorites-only">
+                <input type="checkbox" id="filter-favorites-only" name="favorites" value="1">
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-heart-filled"></use>
+                </svg>
+                <span>عرض العقارات المفضلة فقط</span>
+              </label>
+
+              <div class="filter-panel__actions">
+                <button type="submit" class="btn btn--primary btn--full" id="filter-apply-btn">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-search"></use>
+                  </svg>
+                  <span>تطبيق الفلاتر</span>
+                </button>
+                <button type="button" class="btn btn--ghost btn--sm btn--full" id="filter-reset-btn">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-rotate-ccw"></use>
+                  </svg>
+                  <span>إعادة ضبط جميع الفلاتر</span>
+                </button>
+              </div>
+            </form>
+          </aside>
+
+          <!-- ==============================================================
+               RESULTS COLUMN (Toolbar + Active Filter Chips + Grid / States)
+               ============================================================== -->
+          <div>
+            <!-- Toolbar -->
+            <div class="listings-toolbar">
+              <div class="listings-toolbar__info">
+                <button
+                  type="button"
+                  class="btn btn--navy btn--sm filter-mobile-trigger"
+                  id="filter-open-btn"
+                  aria-expanded="false"
+                  aria-controls="filter-drawer"
+                >
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-sliders"></use>
+                  </svg>
+                  <span>تصفية النتائج</span>
+                  <span class="fav-badge" id="mobile-filter-count">0</span>
+                </button>
+                <p class="results-count" id="properties-results-count" aria-live="polite">
+                  جاري تحميل العقارات...
+                </p>
+              </div>
+
+              <div class="listings-toolbar__controls">
+                <div class="sort-group">
+                  <label for="filter-sort">الترتيب حسب:</label>
+                  <select id="filter-sort" name="sort" class="form-select">
+                    <option value="newest">الأحدث إدراجاً</option>
+                    <option value="price-asc">السعر: من الأقل إلى الأعلى</option>
+                    <option value="price-desc">السعر: من الأعلى إلى الأقل</option>
+                    <option value="area-desc">المساحة: من الأكبر إلى الأصغر</option>
+                    <option value="area-asc">المساحة: من الأصغر إلى الأكبر</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Filter Chips Container -->
+            <div
+              class="active-chips-bar"
+              id="active-filters-bar"
+              aria-label="الفلاتر النشطة"
+              hidden
+            ></div>
+
+            <!-- Loading State -->
+            <div class="state-box" id="properties-loading-state" role="status">
+              <div class="state-box__icon">
+                <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-building"></use>
+                </svg>
+              </div>
+              <h2 class="state-box__title">جاري تحميل المحفظة العقارية...</h2>
+              <p class="state-box__desc">يرجى الانتظار لحظات بينما يتم جلب بيانات الـ 18 وحدة عقارية.</p>
+            </div>
+
+            <!-- Error State -->
+            <div class="state-box" id="properties-error-state" role="alert" hidden>
+              <div class="state-box__icon">
+                <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-info"></use>
+                </svg>
+              </div>
+              <h2 class="state-box__title">تعذّر تحميل بيانات العقارات</h2>
+              <p class="state-box__desc">
+                تأكد من تشغيل الموقع عبر خادم محلي (مثل <code dir="ltr">python -m http.server 5500</code>) وليس عبر فتح ملف HTML مباشرة.
+              </p>
+              <button type="button" class="btn btn--navy btn--sm" id="properties-retry-btn">
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-rotate-ccw"></use>
+                </svg>
+                <span>إعادة المحاولة</span>
+              </button>
+            </div>
+
+            <!-- Empty Results State -->
+            <div class="state-box" id="properties-empty-state" hidden>
+              <div class="state-box__icon">
+                <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-search"></use>
+                </svg>
+              </div>
+              <h2 class="state-box__title">لا توجد وحدات مطابقة لمعايير البحث الحالية</h2>
+              <p class="state-box__desc">
+                جرّب توسيع النطاق السعري أو تقليل الحد الأدنى للمساحة أو الغرف، أو قم بإعادة ضبط الفلاتر لعرض جميع الوحدات الـ 18.
+              </p>
+              <button type="button" class="btn btn--primary" id="empty-reset-btn">
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-rotate-ccw"></use>
+                </svg>
+                <span>إعادة ضبط جميع الفلاتر</span>
+              </button>
+            </div>
+
+            <!-- Properties Grid -->
+            <div class="properties-grid" id="properties-grid" aria-live="polite" hidden></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       SHARED SITE FOOTER
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand-logo" aria-label="NOVA ESTATE الصفحة الرئيسية">
+            <span class="brand-logo__en">NOVA <span>ESTATE</span></span>
+            <span class="brand-logo__sub">نوفا إستيت للعقارات الفاخرة</span>
+          </a>
+          <p class="footer-brand-desc">
+            منصة استشارات وتسويق عقاري فاخرة تستعرض وحدات سكنية وتجارية منتقاة في أبرز المدن الجديدة مع أدوات مقارنة وحساب أقساط فورية.
+          </p>
+          <div class="footer-demo-tag">
+            <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+              <use href="assets/icons/sprite.svg#icon-info"></use>
+            </svg>
+            <span>Concept Project / Demo Data — مشروع عرض بورتفوليو</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">روابط سريعة</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="properties.html">جميع العقارات (18)</a></li>
+            <li><a href="developments.html">المشروعات العمرانية (4)</a></li>
+            <li><a href="about.html">عن الشركة والأسئلة الشائعة</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">أبرز الوجهات</h3>
+          <ul class="footer-links">
+            <li><a href="properties.html?city=القاهرة+الجديدة">عقارات القاهرة الجديدة</a></li>
+            <li><a href="properties.html?city=الشيخ+زايد">عقارات الشيخ زايد</a></li>
+            <li><a href="properties.html?city=العاصمة+الإدارية">عقارات العاصمة الإدارية</a></li>
+            <li><a href="properties.html?city=الساحل+الشمالي">عقارات الساحل الشمالي</a></li>
+            <li><a href="properties.html?purpose=rent">وحدات للإيجار السنوي</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">معلومات التواصل (تجريبية)</h3>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-map-pin"></use>
+              </svg>
+              <span>القاهرة الجديدة، التجمع الخامس، محور التسعين الشمالي — مبنى رقم 42 (عنوان تجريبي)</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-phone"></use>
+              </svg>
+              <span class="num-tabular">+20 (2) 2614-9000</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-mail"></use>
+              </svg>
+              <span class="num-tabular">concierge@nova-estate.demo</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-clock"></use>
+              </svg>
+              <span>الأحد – الخميس: 10:00 صباحاً – 8:00 مساءً</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span class="num-tabular">2026</span> <span class="brand-latin">NOVA ESTATE</span>. جميع الحقوق محفوظة — مشروع افتراضي لأغراض البورتفوليو.</p>
+        <p>الأسعار والمواصفات المعروضة تمثيلية (Demo) ولا تمثل عروضاً تجارية ملزمة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       SHARED FAVORITES DRAWER
+       ====================================================================== -->
+  <div class="drawer-backdrop" id="favorites-backdrop" hidden></div>
+  <aside
+    class="drawer favorites-drawer"
+    id="favorites-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="favorites-drawer-title"
+    aria-hidden="true"
+  >
+    <div class="drawer__header">
+      <h2 class="drawer__title" id="favorites-drawer-title">
+        <svg class="icon icon--md" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-heart-filled"></use>
+        </svg>
+        <span>العقارات المفضلة</span>
+      </h2>
+      <button
+        type="button"
+        class="drawer__close"
+        id="favorites-close-btn"
+        aria-label="إغلاق درج المفضلة"
+      >
+        <svg class="icon icon--md" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-x"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer__body" id="favorites-drawer-body">
+      <div class="state-box" id="favorites-empty-state">
+        <div class="state-box__icon">
+          <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+            <use href="assets/icons/sprite.svg#icon-heart"></use>
+          </svg>
+        </div>
+        <h3 class="state-box__title">قائمة المفضلة فارغة حالياً</h3>
+        <p class="state-box__desc">
+          اضغط على أيقونة القلب أعلى أي بطاقة عقار لحفظه في هذه القائمة ومقارنته لاحقاً.
+        </p>
+        <a href="properties.html" class="btn btn--navy btn--sm">تصفح العقارات المتاحة</a>
+      </div>
+      <ul class="fav-list" id="favorites-drawer-list" hidden></ul>
+    </div>
+
+    <div class="drawer__footer" id="favorites-drawer-footer" hidden>
+      <a href="properties.html?favorites=1" class="btn btn--primary btn--full">
+        <span>عرض المفضلة في صفحة العقارات</span>
+      </a>
+      <button type="button" class="btn btn--ghost btn--sm btn--full" id="favorites-clear-btn">
+        <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-trash"></use>
+        </svg>
+        <span>مسح القائمة بالكامل</span>
+      </button>
+    </div>
+  </aside>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

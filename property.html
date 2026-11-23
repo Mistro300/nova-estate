@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تفاصيل الوحدة العقارية | NOVA ESTATE</title>
+  <meta name="description" content="استعرض المواصفات التفصيلية للوحدة العقارية، معرض الصور، سعر المتر المربع، حاسبة الأقساط التقديرية، ونموذج طلب المعاينة التجريبي.">
+  <meta property="og:title" content="تفاصيل العقار | NOVA ESTATE">
+  <meta property="og:description" content="مواصفات العقار الكاملة مع حاسبة أقساط تفاعلية وطلب معاينة تجريبي.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts: Playfair Display + Inter + IBM Plex Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Modular Design System Stylesheets -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body data-page="property-detail">
+  <a class="skip-link" href="#main-content">تخطي إلى المحتوى الرئيسي</a>
+
+  <!-- ======================================================================
+       SHARED SITE HEADER
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="NOVA ESTATE الصفحة الرئيسية">
+        <span class="brand-logo__en">NOVA <span>ESTATE</span></span>
+        <span class="brand-logo__sub">نوفا إستيت للعقارات الفاخرة</span>
+      </a>
+
+      <nav class="main-nav" id="main-navigation" aria-label="التنقل الرئيسي">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="properties.html" class="nav-link nav-link--active">العقارات</a></li>
+          <li><a href="developments.html" class="nav-link">المشروعات</a></li>
+          <li><a href="about.html" class="nav-link">عن الشركة</a></li>
+          <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          type="button"
+          class="fav-trigger-btn"
+          id="favorites-toggle-btn"
+          aria-expanded="false"
+          aria-controls="favorites-drawer"
+          aria-label="فتح درج العقارات المفضلة"
+        >
+          <svg class="icon icon--md" aria-hidden="true" focusable="false">
+            <use href="assets/icons/sprite.svg#icon-heart"></use>
+          </svg>
+          <span class="fav-trigger-btn__label">المفضلة</span>
+          <span class="fav-badge" id="favorites-count-badge" aria-live="polite">0</span>
+        </button>
+
+        <button
+          type="button"
+          class="mobile-menu-btn"
+          id="mobile-menu-toggle"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+          aria-label="فتح قائمة التنقل"
+        >
+          <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+            <use href="assets/icons/sprite.svg#icon-menu"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       MAIN CONTENT
+       ====================================================================== -->
+  <main id="main-content">
+    <section class="section">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb breadcrumb--light" aria-label="مسار الصفحة">
+          <a href="index.html">الرئيسية</a>
+          <span aria-hidden="true">/</span>
+          <a href="properties.html">العقارات</a>
+          <span aria-hidden="true">/</span>
+          <span class="breadcrumb__current" id="breadcrumb-property-title" aria-current="page">تفاصيل الوحدة</span>
+        </nav>
+
+        <!-- 1. LOADING STATE -->
+        <div class="state-box" id="property-loading-state" role="status">
+          <div class="state-box__icon">
+            <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+              <use href="assets/icons/sprite.svg#icon-building"></use>
+            </svg>
+          </div>
+          <h1 class="state-box__title">جاري تحميل بيانات العقار...</h1>
+          <p class="state-box__desc">يتم الآن تجهيز المواصفات، معرض الصور، وحاسبة الأقساط التقديرية.</p>
+        </div>
+
+        <!-- 2. NOT FOUND / UNKNOWN ID / ERROR STATE -->
+        <div class="state-box" id="property-error-state" role="alert" hidden>
+          <div class="state-box__icon">
+            <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+              <use href="assets/icons/sprite.svg#icon-info"></use>
+            </svg>
+          </div>
+          <h1 class="state-box__title" id="property-error-title">لم يتم العثور على العقار المطلوب</h1>
+          <p class="state-box__desc" id="property-error-desc">
+            المعرّف المحدد في الرابط غير موجود في قاعدة البيانات الحالية أو ربما تم تغييره. يمكنك العودة لاستعراض جميع الوحدات الـ 18 المتاحة.
+          </p>
+          <a href="properties.html" class="btn btn--primary">
+            <span>العودة إلى قائمة العقارات</span>
+          </a>
+        </div>
+
+        <!-- 3. PROPERTY DETAIL CONTENT (Revealed when valid property ID loads) -->
+        <div id="property-detail-content" hidden>
+          <!-- Property Header -->
+          <header class="property-header">
+            <div class="property-header__main">
+              <div class="property-header__badges" id="property-badges"></div>
+              <h1 class="property-header__title" id="property-title">عنوان العقار</h1>
+              <p class="property-header__location">
+                <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-map-pin"></use>
+                </svg>
+                <span id="property-location">المدينة — الحي</span>
+              </p>
+            </div>
+
+            <div class="property-header__price-box">
+              <div class="property-header__price" id="property-price">0 EGP</div>
+              <div class="property-header__sqm" id="property-price-per-sqm">متوسط سعر المتر: 0 EGP / m²</div>
+              <div class="property-header__actions">
+                <button
+                  type="button"
+                  class="btn btn--outline btn--sm"
+                  id="property-fav-btn"
+                  aria-pressed="false"
+                >
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-heart"></use>
+                  </svg>
+                  <span id="property-fav-label">حفظ في المفضلة</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn--ghost btn--sm"
+                  id="property-share-btn"
+                >
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-share"></use>
+                  </svg>
+                  <span id="property-share-label">نسخ الرابط</span>
+                </button>
+              </div>
+            </div>
+          </header>
+
+          <!-- Interactive Gallery -->
+          <div class="gallery" aria-label="معرض صور العقار">
+            <div class="gallery__main">
+              <img
+                src="assets/images/placeholder-property.svg"
+                alt="صورة العقار الرئيسية"
+                class="gallery__main-img"
+                id="gallery-main-img"
+                width="1200"
+                height="675"
+              >
+              <button
+                type="button"
+                class="gallery__expand-btn"
+                id="gallery-expand-btn"
+                aria-label="فتح الصورة في وضع التكبير Lightbox"
+              >
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-maximize"></use>
+                </svg>
+                <span>تكبير المعرض</span>
+              </button>
+            </div>
+            <div class="gallery__thumbs" id="gallery-thumbs" role="list" aria-label="مصغرات الصور"></div>
+          </div>
+
+          <!-- Two-Column Detail Layout -->
+          <div class="property-detail-grid">
+            <!-- Main Column: Specifications, Description, Features & Map -->
+            <div class="detail-stack">
+              <!-- Full Specs Card -->
+              <article class="detail-card" aria-labelledby="specs-heading">
+                <h2 class="detail-card__title" id="specs-heading">
+                  <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-building"></use>
+                  </svg>
+                  <span>المواصفات الكاملة للوحدة</span>
+                </h2>
+                <div class="specs-grid" id="property-specs-grid"></div>
+              </article>
+
+              <!-- Editorial Description Card -->
+              <article class="detail-card" aria-labelledby="desc-heading">
+                <h2 class="detail-card__title" id="desc-heading">
+                  <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-info"></use>
+                  </svg>
+                  <span>نظرة تفصيلية على الوحدة</span>
+                </h2>
+                <p id="property-description" style="color: var(--text-secondary); line-height: 1.85;"></p>
+              </article>
+
+              <!-- Features & Amenities Card -->
+              <article class="detail-card" aria-labelledby="features-heading">
+                <h2 class="detail-card__title" id="features-heading">
+                  <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-check"></use>
+                  </svg>
+                  <span>مميزات وتجهيزات العقار</span>
+                </h2>
+                <ul class="features-list" id="property-features-list"></ul>
+              </article>
+
+              <!-- Location & Development Context Card -->
+              <article class="detail-card" aria-labelledby="location-heading">
+                <h2 class="detail-card__title" id="location-heading">
+                  <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-map-pin"></use>
+                  </svg>
+                  <span>الموقع والمشروع التابع له</span>
+                </h2>
+                <p id="property-development-summary" style="color: var(--text-muted); font-size: var(--text-sm); margin-bottom: var(--space-4);"></p>
+                <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+                  <a href="developments.html" id="property-development-link" class="btn btn--navy btn--sm">
+                    <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                      <use href="assets/icons/sprite.svg#icon-building"></use>
+                    </svg>
+                    <span>استعراض صفحة المشروع</span>
+                  </a>
+                  <a
+                    href="https://maps.google.com"
+                    id="property-map-link"
+                    class="btn btn--outline btn--sm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                      <use href="assets/icons/sprite.svg#icon-external-link"></use>
+                    </svg>
+                    <span>فتح الموقع التقريبي على خرائط Google</span>
+                  </a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Sidebar Column: Installment Calculator + Viewing Appointment Request -->
+            <aside class="detail-stack" aria-label="أدوات التمويل وطلب المعاينة">
+              <!-- Interactive Installment Calculator -->
+              <section class="calc-card" aria-labelledby="calc-heading">
+                <h2 class="detail-card__title" id="calc-heading">
+                  <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-calculator"></use>
+                  </svg>
+                  <span>حاسبة الأقساط التقديرية (Demo)</span>
+                </h2>
+
+                <div class="calc-controls">
+                  <div>
+                    <div class="calc-slider-header">
+                      <label for="calc-down-range">نسبة مقدم التعاقد (10% – 50%)</label>
+                      <span class="calc-slider-val" id="calc-down-percent">15%</span>
+                    </div>
+                    <input
+                      type="range"
+                      id="calc-down-range"
+                      class="calc-range"
+                      min="10"
+                      max="50"
+                      step="5"
+                      value="15"
+                    >
+                  </div>
+
+                  <div>
+                    <div class="calc-slider-header">
+                      <label for="calc-years-range">مدة التقسيط (1 – 10 سنوات)</label>
+                      <span class="calc-slider-val" id="calc-years-label">7 سنوات</span>
+                    </div>
+                    <input
+                      type="range"
+                      id="calc-years-range"
+                      class="calc-range"
+                      min="1"
+                      max="10"
+                      step="1"
+                      value="7"
+                    >
+                  </div>
+                </div>
+
+                <div class="calc-results" aria-live="polite">
+                  <div class="calc-results__row">
+                    <span>إجمالي قيمة الوحدة:</span>
+                    <strong class="num-tabular" id="calc-total-price">0 EGP</strong>
+                  </div>
+                  <div class="calc-results__row">
+                    <span>قيمة دفعة المقدم:</span>
+                    <strong class="num-tabular" id="calc-down-amount">0 EGP</strong>
+                  </div>
+                  <div class="calc-results__row">
+                    <span>المبلغ المتبقي للتقسيط:</span>
+                    <strong class="num-tabular" id="calc-remaining-amount">0 EGP</strong>
+                  </div>
+                  <div class="calc-results__row">
+                    <span>القسط ربع السنوي التقديري:</span>
+                    <strong class="num-tabular" id="calc-quarterly-amount">0 EGP</strong>
+                  </div>
+                  <div class="calc-results__row calc-results__row--highlight">
+                    <span>القسط الشهري التقديري:</span>
+                    <strong class="num-tabular" id="calc-monthly-amount">0 EGP</strong>
+                  </div>
+                </div>
+
+                <div class="demo-notice">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-info"></use>
+                  </svg>
+                  <span>حسابات تقديرية تجريبية بأقساط متساوية بدون فوائد بنكية؛ تخضع خطة السداد النهائية لشروط المطور العقاري.</span>
+                </div>
+              </section>
+
+              <!-- Demo Viewing Appointment Form -->
+              <section class="detail-card" aria-labelledby="viewing-heading">
+                <h2 class="detail-card__title" id="viewing-heading">
+                  <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-calendar"></use>
+                  </svg>
+                  <span>طلب معاينة تجريبي للوحدة</span>
+                </h2>
+
+                <form id="viewing-appointment-form" class="filter-form" novalidate>
+                  <div class="form-group">
+                    <label for="viewing-name" class="form-label">الاسم الكامل *</label>
+                    <input
+                      type="text"
+                      id="viewing-name"
+                      name="name"
+                      class="form-control"
+                      placeholder="أدخل اسمك الثلاثي"
+                      required
+                    >
+                    <span class="form-error" id="viewing-name-error" hidden>يرجى إدخال الاسم الكامل (3 أحرف على الأقل).</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="viewing-phone" class="form-label">رقم الهاتف للتواصل *</label>
+                    <input
+                      type="tel"
+                      id="viewing-phone"
+                      name="phone"
+                      class="form-control num-tabular"
+                      placeholder="+20 10 0000 0000"
+                      required
+                    >
+                    <span class="form-error" id="viewing-phone-error" hidden>يرجى إدخال رقم هاتف صحيح (8 إلى 15 رقماً).</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="viewing-email" class="form-label">البريد الإلكتروني *</label>
+                    <input
+                      type="email"
+                      id="viewing-email"
+                      name="email"
+                      class="form-control num-tabular"
+                      placeholder="name@example.com"
+                      required
+                    >
+                    <span class="form-error" id="viewing-email-error" hidden>يرجى إدخال بريد إلكتروني صحيح.</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="viewing-date" class="form-label">تاريخ المعاينة المفضل *</label>
+                    <input
+                      type="date"
+                      id="viewing-date"
+                      name="date"
+                      class="form-control num-tabular"
+                      required
+                    >
+                    <span class="form-error" id="viewing-date-error" hidden>يرجى اختيار تاريخ اليوم أو تاريخ مستقبلي (لا يُسمح بتواريخ ماضية).</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="viewing-time" class="form-label">الفترة الزمنية المفضلة</label>
+                    <select id="viewing-time" name="timeSlot" class="form-select">
+                      <option value="صباحاً (10:00 ص - 1:00 م)">صباحاً (10:00 ص – 1:00 م)</option>
+                      <option value="ظهراً (1:00 م - 4:00 م)">ظهراً (1:00 م – 4:00 م)</option>
+                      <option value="مساءً (4:00 م - 7:00 م)">مساءً (4:00 م – 7:00 م)</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="viewing-notes" class="form-label">ملاحظات إضافية (اختياري)</label>
+                    <textarea
+                      id="viewing-notes"
+                      name="notes"
+                      class="form-control"
+                      rows="3"
+                      placeholder="أي استفسارات حول خطة السداد أو المعاينة..."
+                    ></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn--primary btn--full">
+                    <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                      <use href="assets/icons/sprite.svg#icon-calendar"></use>
+                    </svg>
+                    <span>تأكيد طلب المعاينة التجريبي</span>
+                  </button>
+
+                  <div class="demo-notice">
+                    <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                      <use href="assets/icons/sprite.svg#icon-info"></use>
+                    </svg>
+                    <span>نموذج تجريبي (Demo): يعمل محلياً داخل المتصفح ولا يرسل بياناتك إلى خادم أو وكيل حقيقي.</span>
+                  </div>
+                </form>
+
+                <!-- Viewing Confirmation Summary Box -->
+                <div class="state-box" id="viewing-confirmation" role="status" hidden>
+                  <div class="state-box__icon">
+                    <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+                      <use href="assets/icons/sprite.svg#icon-check"></use>
+                    </svg>
+                  </div>
+                  <h3 class="state-box__title">تم تسجيل ملخص المعاينة التجريبي</h3>
+                  <div id="viewing-confirmation-details" style="text-align: right; width: 100%; font-size: var(--text-xs); color: var(--text-secondary); background: var(--bg-page); padding: var(--space-3); border-radius: var(--radius-sm); border: 1px solid var(--border-hairline);"></div>
+                  <div class="demo-notice">
+                    <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                      <use href="assets/icons/sprite.svg#icon-info"></use>
+                    </svg>
+                    <span>تنبيه: هذه المحاكاة لأغراض استعراض البورتفوليو فقط ولم يتم إرسال أي حجز فعلي.</span>
+                  </div>
+                  <button type="button" class="btn btn--outline btn--sm btn--full" id="viewing-reset-btn">
+                    <span>إرسال طلب تجريبي آخر</span>
+                  </button>
+                </div>
+              </section>
+            </aside>
+          </div>
+
+          <!-- Similar Properties Section -->
+          <section class="section" style="padding-bottom: 0;" aria-labelledby="similar-heading">
+            <div class="section-header">
+              <div class="section-header__copy">
+                <span class="eyebrow">خيارات مقترحة للمقارنة</span>
+                <h2 id="similar-heading" class="section-title">وحدات مشابهة في المحفظة</h2>
+              </div>
+              <a href="properties.html" class="btn btn--outline btn--sm">عرض جميع العقارات</a>
+            </div>
+            <div class="properties-grid" id="similar-properties-grid"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       LIGHTBOX MODAL FOR FULLSCREEN GALLERY (Keyboard ArrowLeft/Right/Escape)
+       ====================================================================== -->
+  <div
+    class="lightbox"
+    id="property-lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="معرض صور العقار المكبر"
+    hidden
+  >
+    <div class="lightbox__top">
+      <span class="lightbox__counter" id="lightbox-counter">1 / 3</span>
+      <button
+        type="button"
+        class="drawer__close"
+        id="lightbox-close-btn"
+        aria-label="إغلاق العرض المكبر (Escape)"
+      >
+        <svg class="icon icon--md" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-x"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div class="lightbox__stage">
+      <button
+        type="button"
+        class="lightbox__nav lightbox__nav--prev"
+        id="lightbox-prev-btn"
+        aria-label="الصورة السابقة"
+      >
+        <svg class="icon icon--md" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-chevron-right"></use>
+        </svg>
+      </button>
+
+      <img
+        src="assets/images/placeholder-property.svg"
+        alt="صورة مكبرة للعقار"
+        class="lightbox__img"
+        id="lightbox-img"
+      >
+
+      <button
+        type="button"
+        class="lightbox__nav lightbox__nav--next"
+        id="lightbox-next-btn"
+        aria-label="الصورة التالية"
+      >
+        <svg class="icon icon--md" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-chevron-left"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       SHARED SITE FOOTER
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand-logo" aria-label="NOVA ESTATE الصفحة الرئيسية">
+            <span class="brand-logo__en">NOVA <span>ESTATE</span></span>
+            <span class="brand-logo__sub">نوفا إستيت للعقارات الفاخرة</span>
+          </a>
+          <p class="footer-brand-desc">
+            منصة استشارات وتسويق عقاري فاخرة تستعرض وحدات سكنية وتجارية منتقاة في أبرز المدن الجديدة مع أدوات مقارنة وحساب أقساط فورية.
+          </p>
+          <div class="footer-demo-tag">
+            <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+              <use href="assets/icons/sprite.svg#icon-info"></use>
+            </svg>
+            <span>Concept Project / Demo Data — مشروع عرض بورتفوليو</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">روابط سريعة</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="properties.html">جميع العقارات (18)</a></li>
+            <li><a href="developments.html">المشروعات العمرانية (4)</a></li>
+            <li><a href="about.html">عن الشركة والأسئلة الشائعة</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">أبرز الوجهات</h3>
+          <ul class="footer-links">
+            <li><a href="properties.html?city=القاهرة+الجديدة">عقارات القاهرة الجديدة</a></li>
+            <li><a href="properties.html?city=الشيخ+زايد">عقارات الشيخ زايد</a></li>
+            <li><a href="properties.html?city=العاصمة+الإدارية">عقارات العاصمة الإدارية</a></li>
+            <li><a href="properties.html?city=الساحل+الشمالي">عقارات الساحل الشمالي</a></li>
+            <li><a href="properties.html?purpose=rent">وحدات للإيجار السنوي</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">معلومات التواصل (تجريبية)</h3>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-map-pin"></use>
+              </svg>
+              <span>القاهرة الجديدة، التجمع الخامس، محور التسعين الشمالي — مبنى رقم 42 (عنوان تجريبي)</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-phone"></use>
+              </svg>
+              <span class="num-tabular">+20 (2) 2614-9000</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-mail"></use>
+              </svg>
+              <span class="num-tabular">concierge@nova-estate.demo</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-clock"></use>
+              </svg>
+              <span>الأحد – الخميس: 10:00 صباحاً – 8:00 مساءً</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span class="num-tabular">2026</span> <span class="brand-latin">NOVA ESTATE</span>. جميع الحقوق محفوظة — مشروع افتراضي لأغراض البورتفوليو.</p>
+        <p>الأسعار والمواصفات المعروضة تمثيلية (Demo) ولا تمثل عروضاً تجارية ملزمة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       SHARED FAVORITES DRAWER
+       ====================================================================== -->
+  <div class="drawer-backdrop" id="favorites-backdrop" hidden></div>
+  <aside
+    class="drawer favorites-drawer"
+    id="favorites-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="favorites-drawer-title"
+    aria-hidden="true"
+  >
+    <div class="drawer__header">
+      <h2 class="drawer__title" id="favorites-drawer-title">
+        <svg class="icon icon--md" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-heart-filled"></use>
+        </svg>
+        <span>العقارات المفضلة</span>
+      </h2>
+      <button
+        type="button"
+        class="drawer__close"
+        id="favorites-close-btn"
+        aria-label="إغلاق درج المفضلة"
+      >
+        <svg class="icon icon--md" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-x"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer__body" id="favorites-drawer-body">
+      <div class="state-box" id="favorites-empty-state">
+        <div class="state-box__icon">
+          <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+            <use href="assets/icons/sprite.svg#icon-heart"></use>
+          </svg>
+        </div>
+        <h3 class="state-box__title">قائمة المفضلة فارغة حالياً</h3>
+        <p class="state-box__desc">
+          اضغط على أيقونة القلب أعلى أي بطاقة عقار لحفظه في هذه القائمة ومقارنته لاحقاً.
+        </p>
+        <a href="properties.html" class="btn btn--navy btn--sm">تصفح العقارات المتاحة</a>
+      </div>
+      <ul class="fav-list" id="favorites-drawer-list" hidden></ul>
+    </div>
+
+    <div class="drawer__footer" id="favorites-drawer-footer" hidden>
+      <a href="properties.html?favorites=1" class="btn btn--primary btn--full">
+        <span>عرض المفضلة في صفحة العقارات</span>
+      </a>
+      <button type="button" class="btn btn--ghost btn--sm btn--full" id="favorites-clear-btn">
+        <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-trash"></use>
+        </svg>
+        <span>مسح القائمة بالكامل</span>
+      </button>
+    </div>
+  </aside>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVA ESTATE | نوفا إستيت للتسويق والاستشارات العقارية الفاخرة</title>
+  <meta name="description" content="استكشف نخبة العقارات والمشروعات السكنية والتجارية الفاخرة في القاهرة الجديدة، الشيخ زايد، العاصمة الإدارية، والساحل الشمالي مع فلاتر ذكية وحاسبة أقساط فورية.">
+  <meta property="og:title" content="NOVA ESTATE | نوفا إستيت للعقارات الفاخرة">
+  <meta property="og:description" content="منصة تسويق عقاري فاخرة تضم 18 وحدة منتقاة و4 مشروعات عمرانية مع فلاتر متقدمة وحاسبة أقساط تجريبية.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts: Playfair Display (600,700) + Inter (400,500,600,700) + IBM Plex Sans Arabic (400,500,600,700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Modular Design System Stylesheets -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body data-page="home">
+  <!-- Skip Navigation Link for Keyboard Accessibility -->
+  <a class="skip-link" href="#main-content">تخطي إلى المحتوى الرئيسي</a>
+
+  <!-- ======================================================================
+       SHARED SITE HEADER (Sticky Navigation + Live Favorites Drawer Trigger)
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="NOVA ESTATE الصفحة الرئيسية">
+        <span class="brand-logo__en">NOVA <span>ESTATE</span></span>
+        <span class="brand-logo__sub">نوفا إستيت للعقارات الفاخرة</span>
+      </a>
+
+      <nav class="main-nav" id="main-navigation" aria-label="التنقل الرئيسي">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link nav-link--active" aria-current="page">الرئيسية</a></li>
+          <li><a href="properties.html" class="nav-link">العقارات</a></li>
+          <li><a href="developments.html" class="nav-link">المشروعات</a></li>
+          <li><a href="about.html" class="nav-link">عن الشركة</a></li>
+          <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Favorites Drawer Trigger Button -->
+        <button
+          type="button"
+          class="fav-trigger-btn"
+          id="favorites-toggle-btn"
+          aria-expanded="false"
+          aria-controls="favorites-drawer"
+          aria-label="فتح درج العقارات المفضلة"
+        >
+          <svg class="icon icon--md" aria-hidden="true" focusable="false">
+            <use href="assets/icons/sprite.svg#icon-heart"></use>
+          </svg>
+          <span class="fav-trigger-btn__label">المفضلة</span>
+          <span class="fav-badge" id="favorites-count-badge" aria-live="polite">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button
+          type="button"
+          class="mobile-menu-btn"
+          id="mobile-menu-toggle"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+          aria-label="فتح قائمة التنقل"
+        >
+          <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+            <use href="assets/icons/sprite.svg#icon-menu"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       MAIN CONTENT
+       ====================================================================== -->
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION WITH QUICK SEARCH (Submits GET Query Params to properties.html) -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <div class="hero__eyebrow">
+            <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+              <use href="assets/icons/sprite.svg#icon-building"></use>
+            </svg>
+            <span>محفظة عقارية منتقاة بعناية — Concept Portfolio Demo</span>
+          </div>
+          <h1 id="hero-heading" class="hero__title">
+            مساحات سكنية واستثمارية تجمع بين <span>العمارة الراقية</span> والقيمة المستدامة
+          </h1>
+          <p class="hero__subtitle">
+            اكتشف 18 وحدة فاخرة و4 مشروعات عمرانية في أرقى الوجهات المصرية. قارن المواصفات الدقيقة، احسب خطة الأقساط التقديرية، واحفظ خياراتك المفضلة في مكان واحد.
+          </p>
+        </div>
+
+        <!-- Hero Quick Search Panel (Direct GET submission to properties.html) -->
+        <div class="hero-search" role="search" aria-label="بحث سريع في العقارات">
+          <form id="hero-search-form" class="hero-search__form" action="properties.html" method="get">
+            <div class="form-group">
+              <label for="hero-purpose" class="form-label">الغرض العقاري</label>
+              <select id="hero-purpose" name="purpose" class="form-select">
+                <option value="">جميع الأغراض (بيع وإيجار)</option>
+                <option value="sale">للبيع (تملك واستثمار)</option>
+                <option value="rent">للإيجار السنوي</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="hero-city" class="form-label">المدينة / الوجهة</label>
+              <select id="hero-city" name="city" class="form-select">
+                <option value="">جميع المدن</option>
+                <option value="القاهرة الجديدة">القاهرة الجديدة</option>
+                <option value="الشيخ زايد">الشيخ زايد</option>
+                <option value="العاصمة الإدارية">العاصمة الإدارية</option>
+                <option value="الساحل الشمالي">الساحل الشمالي</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="hero-type" class="form-label">نوع الوحدة</label>
+              <select id="hero-type" name="type" class="form-select">
+                <option value="">جميع أنواع العقارات</option>
+                <option value="apartment">شقة فاخرة</option>
+                <option value="villa">فيلا مستقلة</option>
+                <option value="townhouse">تاون هاوس</option>
+                <option value="duplex">دوبلكس / بنتهاوس</option>
+                <option value="commercial">وحدة تجارية / إدارية</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg">
+              <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-search"></use>
+              </svg>
+              <span>استكشف العقارات</span>
+            </button>
+          </form>
+
+          <div class="hero-search__quick">
+            <span>عمليات بحث شائعة:</span>
+            <a href="properties.html?city=القاهرة+الجديدة&type=apartment" class="hero-search__quick-link">شقق القاهرة الجديدة</a>
+            <a href="properties.html?city=الشيخ+زايد&type=villa" class="hero-search__quick-link">فيلات الشيخ زايد</a>
+            <a href="properties.html?city=الساحل+الشمالي" class="hero-search__quick-link">وحدات الساحل الشمالي</a>
+            <a href="properties.html?type=commercial" class="hero-search__quick-link">مقرات إدارية وتجارية</a>
+          </div>
+        </div>
+
+        <!-- Editorial Portfolio Metrics -->
+        <div class="hero__stats" aria-label="إحصائيات المحفظة العقارية التجريبية">
+          <div class="hero-stat">
+            <span class="hero-stat__num num-tabular">18</span>
+            <span class="hero-stat__label">وحدة سكنية وتجارية موثقة المواصفات</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat__num num-tabular">04</span>
+            <span class="hero-stat__label">مشروعات عمرانية متكاملة الخدمات</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat__num num-tabular">10%</span>
+            <span class="hero-stat__label">مقدم تعاقد يبدأ من 10% في حاسبة الأقساط</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat__num num-tabular">2026</span>
+            <span class="hero-stat__label">دفعات استلام فورية وقريبة المدى</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. FEATURED PROPERTIES SECTION (Shared Property Card Anatomy) -->
+    <section class="section" aria-labelledby="featured-properties-heading">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__copy">
+            <span class="eyebrow">مختارات المحفظة العقارية</span>
+            <h2 id="featured-properties-heading" class="section-title">أحدث الوحدات العقارية المختارة</h2>
+            <p class="section-subtitle">
+              تشكيلة من الشقق الفاخرة، الفيلات المستقلة، والمقرات الإدارية الجاهزة للمعاينة في أبرز المجتمعات العمرانية.
+            </p>
+          </div>
+          <a href="properties.html" class="btn btn--outline">
+            <span>عرض جميع العقارات (18)</span>
+            <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+              <use href="assets/icons/sprite.svg#icon-chevron-left"></use>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Properties Grid (Hydrated dynamically by JS, with initial static cards following exact anatomy) -->
+        <div class="properties-grid" id="home-featured-properties" aria-live="polite">
+          <!-- Card 1: apt-001 -->
+          <article class="property-card" data-property-id="apt-001">
+            <div class="property-card__media">
+              <a href="property.html?id=apt-001" tabindex="-1" aria-hidden="true">
+                <img
+                  src="assets/images/properties/prop-exterior.svg"
+                  alt="شقة بانورامية بإطلالة على الحديقة المركزية في القاهرة الجديدة"
+                  class="property-card__img"
+                  width="800"
+                  height="600"
+                  loading="eager"
+                >
+              </a>
+              <div class="property-card__badges">
+                <span class="badge badge--purpose">للبيع</span>
+                <span class="badge badge--available">متاح</span>
+              </div>
+              <button
+                type="button"
+                class="property-card__fav-btn"
+                data-fav-btn="apt-001"
+                aria-pressed="false"
+                aria-label="إضافة شقة بانورامية بإطلالة على الحديقة المركزية إلى المفضلة"
+              >
+                <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-heart"></use>
+                </svg>
+              </button>
+            </div>
+
+            <div class="property-card__body">
+              <div class="property-card__price-row">
+                <span class="property-card__price">8,450,000 EGP</span>
+                <span class="property-card__type-tag">شقة فاخرة</span>
+              </div>
+              <h3 class="property-card__title">
+                <a href="property.html?id=apt-001">شقة بانورامية بإطلالة على الحديقة المركزية</a>
+              </h3>
+              <p class="property-card__location">
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-map-pin"></use>
+                </svg>
+                <span>القاهرة الجديدة — التجمع الخامس</span>
+              </p>
+
+              <div class="property-card__specs" aria-label="مواصفات العقار">
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-bed"></use>
+                  </svg>
+                  <span><strong class="num-tabular">3</strong> غرف</span>
+                </span>
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-bath"></use>
+                  </svg>
+                  <span><strong class="num-tabular">3</strong> حمام</span>
+                </span>
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-area"></use>
+                  </svg>
+                  <span class="num-tabular">185 m²</span>
+                </span>
+              </div>
+
+              <div class="property-card__footer">
+                <span>استلام <strong class="num-tabular">2026</strong> • الترا لوكس</span>
+                <a href="property.html?id=apt-001" class="property-card__cta">
+                  <span>التفاصيل</span>
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-chevron-left"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: vil-006 -->
+          <article class="property-card" data-property-id="vil-006">
+            <div class="property-card__media">
+              <a href="property.html?id=vil-006" tabindex="-1" aria-hidden="true">
+                <img
+                  src="assets/images/properties/prop-terrace.svg"
+                  alt="فيلا كلاسيكية بإطلالة جولف مفتوحة في الشيخ زايد"
+                  class="property-card__img"
+                  width="800"
+                  height="600"
+                  loading="lazy"
+                >
+              </a>
+              <div class="property-card__badges">
+                <span class="badge badge--purpose">للبيع</span>
+                <span class="badge badge--available">متاح</span>
+              </div>
+              <button
+                type="button"
+                class="property-card__fav-btn"
+                data-fav-btn="vil-006"
+                aria-pressed="false"
+                aria-label="إضافة فيلا كلاسيكية بإطلالة جولف مفتوحة إلى المفضلة"
+              >
+                <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-heart"></use>
+                </svg>
+              </button>
+            </div>
+
+            <div class="property-card__body">
+              <div class="property-card__price-row">
+                <span class="property-card__price">34,000,000 EGP</span>
+                <span class="property-card__type-tag">فيلا مستقلة</span>
+              </div>
+              <h3 class="property-card__title">
+                <a href="property.html?id=vil-006">فيلا كلاسيكية بإطلالة جولف مفتوحة</a>
+              </h3>
+              <p class="property-card__location">
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-map-pin"></use>
+                </svg>
+                <span>الشيخ زايد — الحزام الأخضر</span>
+              </p>
+
+              <div class="property-card__specs" aria-label="مواصفات العقار">
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-bed"></use>
+                  </svg>
+                  <span><strong class="num-tabular">6</strong> غرف</span>
+                </span>
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-bath"></use>
+                  </svg>
+                  <span><strong class="num-tabular">6</strong> حمام</span>
+                </span>
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-area"></use>
+                  </svg>
+                  <span class="num-tabular">520 m²</span>
+                </span>
+              </div>
+
+              <div class="property-card__footer">
+                <span>استلام <strong class="num-tabular">2026</strong> • نصف تشطيب</span>
+                <a href="property.html?id=vil-006" class="property-card__cta">
+                  <span>التفاصيل</span>
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-chevron-left"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: twn-016 -->
+          <article class="property-card" data-property-id="twn-016">
+            <div class="property-card__media">
+              <a href="property.html?id=twn-016" tabindex="-1" aria-hidden="true">
+                <img
+                  src="assets/images/properties/prop-exterior.svg"
+                  alt="تاون هاوس بإطلالة لاجون مباشرة في رأس الحكمة الساحل الشمالي"
+                  class="property-card__img"
+                  width="800"
+                  height="600"
+                  loading="lazy"
+                >
+              </a>
+              <div class="property-card__badges">
+                <span class="badge badge--purpose">للبيع</span>
+                <span class="badge badge--available">متاح</span>
+              </div>
+              <button
+                type="button"
+                class="property-card__fav-btn"
+                data-fav-btn="twn-016"
+                aria-pressed="false"
+                aria-label="إضافة تاون هاوس بإطلالة لاجون مباشرة إلى المفضلة"
+              >
+                <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-heart"></use>
+                </svg>
+              </button>
+            </div>
+
+            <div class="property-card__body">
+              <div class="property-card__price-row">
+                <span class="property-card__price">18,900,000 EGP</span>
+                <span class="property-card__type-tag">تاون هاوس</span>
+              </div>
+              <h3 class="property-card__title">
+                <a href="property.html?id=twn-016">تاون هاوس بإطلالة لاجون مباشرة برأس الحكمة</a>
+              </h3>
+              <p class="property-card__location">
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-map-pin"></use>
+                </svg>
+                <span>الساحل الشمالي — خليج رأس الحكمة</span>
+              </p>
+
+              <div class="property-card__specs" aria-label="مواصفات العقار">
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-bed"></use>
+                  </svg>
+                  <span><strong class="num-tabular">3</strong> غرف</span>
+                </span>
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-bath"></use>
+                  </svg>
+                  <span><strong class="num-tabular">4</strong> حمام</span>
+                </span>
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-area"></use>
+                  </svg>
+                  <span class="num-tabular">235 m²</span>
+                </span>
+              </div>
+
+              <div class="property-card__footer">
+                <span>استلام <strong class="num-tabular">2026</strong> • تشطيب فندقي</span>
+                <a href="property.html?id=twn-016" class="property-card__cta">
+                  <span>التفاصيل</span>
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-chevron-left"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FEATURED DEVELOPMENTS SECTION -->
+    <section class="section section--subtle" aria-labelledby="featured-devs-heading">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__copy">
+            <span class="eyebrow">مجتمعات عمرانية متكاملة</span>
+            <h2 id="featured-devs-heading" class="section-title">مشروعات عقارية مميزة</h2>
+            <p class="section-subtitle">
+              تعرّف على نسب الإنجاز الهندسي الفعلية، المرافق الخدمية، والوحدات المتاحة داخل كل مشروع.
+            </p>
+          </div>
+          <a href="developments.html" class="btn btn--outline">
+            <span>استعراض المشروعات الأربعة</span>
+            <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+              <use href="assets/icons/sprite.svg#icon-chevron-left"></use>
+            </svg>
+          </a>
+        </div>
+
+        <div class="developments-grid" id="home-featured-developments" aria-live="polite">
+          <!-- Development Card 1 -->
+          <article class="dev-card" data-development-id="dev-001">
+            <div class="dev-card__media">
+              <a href="development.html?id=dev-001" tabindex="-1" aria-hidden="true">
+                <img
+                  src="assets/images/developments/dev-cover.svg"
+                  alt="مشروع أوريليا ريزيدنس في القاهرة الجديدة"
+                  class="dev-card__img"
+                  width="800"
+                  height="450"
+                  loading="lazy"
+                >
+              </a>
+              <div class="dev-card__overlay-badges">
+                <span class="badge badge--purpose">القاهرة الجديدة</span>
+                <span class="badge badge--gold">5 وحدات مدرجة</span>
+              </div>
+            </div>
+            <div class="dev-card__body">
+              <h3 class="dev-card__title">
+                <a href="development.html?id=dev-001">أوريليا ريزيدنس — Aurelia Residences</a>
+              </h3>
+              <p class="dev-card__summary">
+                مجتمع سكني وإداري متكامل في قلب الجولدن سكوير يجمع بين العمارة الأوروبية الكلاسيكية والمسطحات الخضراء المفتوحة بنسبة بنائية لا تتجاوز 20%.
+              </p>
+              <div class="dev-card__progress">
+                <div class="dev-card__progress-header">
+                  <span>نسبة الإنجاز الإنشائي</span>
+                  <span class="num-tabular">78%</span>
+                </div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="نسبة إنجاز أوريليا ريزيدنس">
+                  <div class="progress-bar__fill" style="width: 78%;"></div>
+                </div>
+              </div>
+              <div class="dev-card__meta">
+                <div class="dev-card__meta-item">
+                  <span class="dev-card__meta-label">السعر الابتدائي</span>
+                  <span class="dev-card__meta-val num-tabular">8,450,000 EGP</span>
+                </div>
+                <div class="dev-card__meta-item">
+                  <span class="dev-card__meta-label">سنة التسليم</span>
+                  <span class="dev-card__meta-val num-tabular">2026</span>
+                </div>
+                <div class="dev-card__meta-item">
+                  <span class="dev-card__meta-label">استكشاف</span>
+                  <a href="development.html?id=dev-001" class="property-card__cta">
+                    <span>وحدات المشروع</span>
+                    <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                      <use href="assets/icons/sprite.svg#icon-chevron-left"></use>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Development Card 2 -->
+          <article class="dev-card" data-development-id="dev-002">
+            <div class="dev-card__media">
+              <a href="development.html?id=dev-002" tabindex="-1" aria-hidden="true">
+                <img
+                  src="assets/images/developments/dev-cover.svg"
+                  alt="مشروع سولاريس بارك في الشيخ زايد"
+                  class="dev-card__img"
+                  width="800"
+                  height="450"
+                  loading="lazy"
+                >
+              </a>
+              <div class="dev-card__overlay-badges">
+                <span class="badge badge--purpose">الشيخ زايد</span>
+                <span class="badge badge--gold">5 وحدات مدرجة</span>
+              </div>
+            </div>
+            <div class="dev-card__body">
+              <h3 class="dev-card__title">
+                <a href="development.html?id=dev-002">سولاريس بارك — Solaris West Park</a>
+              </h3>
+              <p class="dev-card__summary">
+                كمبوند فيلات وتاون هاوس منخفض الكثافة في امتداد الشيخ زايد بإطلالات مباشرة على ملاعب الجولف وممرات المشي المظللة.
+              </p>
+              <div class="dev-card__progress">
+                <div class="dev-card__progress-header">
+                  <span>نسبة الإنجاز الإنشائي</span>
+                  <span class="num-tabular">90%</span>
+                </div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="نسبة إنجاز سولاريس بارك">
+                  <div class="progress-bar__fill" style="width: 90%;"></div>
+                </div>
+              </div>
+              <div class="dev-card__meta">
+                <div class="dev-card__meta-item">
+                  <span class="dev-card__meta-label">السعر الابتدائي</span>
+                  <span class="dev-card__meta-val num-tabular">9,100,000 EGP</span>
+                </div>
+                <div class="dev-card__meta-item">
+                  <span class="dev-card__meta-label">سنة التسليم</span>
+                  <span class="dev-card__meta-val num-tabular">2026</span>
+                </div>
+                <div class="dev-card__meta-item">
+                  <span class="dev-card__meta-label">استكشاف</span>
+                  <a href="development.html?id=dev-002" class="property-card__cta">
+                    <span>وحدات المشروع</span>
+                    <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                      <use href="assets/icons/sprite.svg#icon-chevron-left"></use>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. VALUE PILLARS (WHY NOVA ESTATE) -->
+    <section class="section" aria-labelledby="pillars-heading">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__copy">
+            <span class="eyebrow">معايير الاستشارات العقارية</span>
+            <h2 id="pillars-heading" class="section-title">لماذا يختار المستثمرون NOVA ESTATE؟</h2>
+            <p class="section-subtitle">
+              نقدم تجربة رقمية شفافة تركز على دقة البيانات وسهولة المقارنة قبل اتخاذ قرار الشراء أو الاستئجار.
+            </p>
+          </div>
+        </div>
+
+        <div class="pillars-grid">
+          <article class="pillar-card">
+            <div class="pillar-card__icon">
+              <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-sliders"></use>
+              </svg>
+            </div>
+            <h3 class="pillar-card__title">فلاتر مركبة مرتبطة بالـ URL</h3>
+            <p class="pillar-card__desc">
+              ابحث حسب الغرض، المدينة، نوع العقار، النطاق السعري، المساحة، وعدد الغرف مع حفظ معايير البحث في الرابط لمشاركتها بسهولة.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-card__icon">
+              <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-calculator"></use>
+              </svg>
+            </div>
+            <h3 class="pillar-card__title">حاسبة أقساط وسعر متر فوري</h3>
+            <p class="pillar-card__desc">
+              كل صفحة عقار تحسب تلقائياً سعر المتر المربع وتوفر أداة تفاعلية لتقدير دفعة المقدم والأقساط الشهرية وربع السنوية.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-card__icon">
+              <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-shield-check"></use>
+              </svg>
+            </div>
+            <h3 class="pillar-card__title">شفافية الحالة والمواصفات</h3>
+            <p class="pillar-card__desc">
+              توضيح فوري لحالة الوحدة (متاح، محجوز، تم البيع)، مستوى التشطيب، سنة الاستلام، ونسبة الإنجاز الفعلي للمشروع التابع له.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. EDITORIAL CTA SECTION -->
+    <section class="section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-banner">
+          <div class="cta-banner__copy">
+            <span class="eyebrow">استشارة عقارية مخصصة</span>
+            <h2 id="cta-heading" class="cta-banner__title">هل تبحث عن وحدة بمواصفات خاصة أو خطة سداد مرنة؟</h2>
+            <p class="cta-banner__desc">
+              استخدم لوحة الفلترة المتقدمة للمقارنة بين 18 وحدة عقارية، أو تواصل مع فريقنا الاستشاري الافتراضي لتجربة نموذج حجز المعاينة.
+            </p>
+          </div>
+          <div class="cta-banner__actions">
+            <a href="properties.html" class="btn btn--primary btn--lg">تصفح جميع العقارات</a>
+            <a href="contact.html" class="btn btn--outline-light btn--lg">طلب استشارة تجريبية</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       SHARED SITE FOOTER
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand-logo" aria-label="NOVA ESTATE الصفحة الرئيسية">
+            <span class="brand-logo__en">NOVA <span>ESTATE</span></span>
+            <span class="brand-logo__sub">نوفا إستيت للعقارات الفاخرة</span>
+          </a>
+          <p class="footer-brand-desc">
+            منصة استشارات وتسويق عقاري فاخرة تستعرض وحدات سكنية وتجارية منتقاة في أبرز المدن الجديدة مع أدوات مقارنة وحساب أقساط فورية.
+          </p>
+          <div class="footer-demo-tag">
+            <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+              <use href="assets/icons/sprite.svg#icon-info"></use>
+            </svg>
+            <span>Concept Project / Demo Data — مشروع عرض بورتفوليو</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">روابط سريعة</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="properties.html">جميع العقارات (18)</a></li>
+            <li><a href="developments.html">المشروعات العمرانية (4)</a></li>
+            <li><a href="about.html">عن الشركة والأسئلة الشائعة</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">أبرز الوجهات</h3>
+          <ul class="footer-links">
+            <li><a href="properties.html?city=القاهرة+الجديدة">عقارات القاهرة الجديدة</a></li>
+            <li><a href="properties.html?city=الشيخ+زايد">عقارات الشيخ زايد</a></li>
+            <li><a href="properties.html?city=العاصمة+الإدارية">عقارات العاصمة الإدارية</a></li>
+            <li><a href="properties.html?city=الساحل+الشمالي">عقارات الساحل الشمالي</a></li>
+            <li><a href="properties.html?purpose=rent">وحدات للإيجار السنوي</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">معلومات التواصل (تجريبية)</h3>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-map-pin"></use>
+              </svg>
+              <span>القاهرة الجديدة، التجمع الخامس، محور التسعين الشمالي — مبنى رقم 42 (عنوان تجريبي)</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-phone"></use>
+              </svg>
+              <span class="num-tabular">+20 (2) 2614-9000</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-mail"></use>
+              </svg>
+              <span class="num-tabular">concierge@nova-estate.demo</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-clock"></use>
+              </svg>
+              <span>الأحد – الخميس: 10:00 صباحاً – 8:00 مساءً</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span class="num-tabular">2026</span> <span class="brand-latin">NOVA ESTATE</span>. جميع الحقوق محفوظة — مشروع افتراضي لأغراض البورتفوليو.</p>
+        <p>الأسعار والمواصفات المعروضة تمثيلية (Demo) ولا تمثل عروضاً تجارية ملزمة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       SHARED FAVORITES DRAWER (Persisted via LocalStorage: nova_estate_favorites_v1)
+       ====================================================================== -->
+  <div class="drawer-backdrop" id="favorites-backdrop" hidden></div>
+  <aside
+    class="drawer favorites-drawer"
+    id="favorites-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="favorites-drawer-title"
+    aria-hidden="true"
+  >
+    <div class="drawer__header">
+      <h2 class="drawer__title" id="favorites-drawer-title">
+        <svg class="icon icon--md" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-heart-filled"></use>
+        </svg>
+        <span>العقارات المفضلة</span>
+      </h2>
+      <button
+        type="button"
+        class="drawer__close"
+        id="favorites-close-btn"
+        aria-label="إغلاق درج المفضلة"
+      >
+        <svg class="icon icon--md" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-x"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer__body" id="favorites-drawer-body">
+      <div class="state-box" id="favorites-empty-state">
+        <div class="state-box__icon">
+          <svg class="icon icon--lg" aria-hidden="true" focusable="false">
+            <use href="assets/icons/sprite.svg#icon-heart"></use>
+          </svg>
+        </div>
+        <h3 class="state-box__title">قائمة المفضلة فارغة حالياً</h3>
+        <p class="state-box__desc">
+          اضغط على أيقونة القلب أعلى أي بطاقة عقار لحفظه في هذه القائمة ومقارنته لاحقاً.
+        </p>
+        <a href="properties.html" class="btn btn--navy btn--sm">تصفح العقارات المتاحة</a>
+      </div>
+      <ul class="fav-list" id="favorites-drawer-list" hidden></ul>
+    </div>
+
+    <div class="drawer__footer" id="favorites-drawer-footer" hidden>
+      <a href="properties.html?favorites=1" class="btn btn--primary btn--full">
+        <span>عرض المفضلة في صفحة العقارات</span>
+      </a>
+      <button type="button" class="btn btn--ghost btn--sm btn--full" id="favorites-clear-btn">
+        <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+          <use href="assets/icons/sprite.svg#icon-trash"></use>
+        </svg>
+        <span>مسح القائمة بالكامل</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main ES Module Entry Point (Will hydrate data & interactions in Stage 4) -->
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

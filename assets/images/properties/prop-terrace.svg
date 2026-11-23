@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Private Terrace and Pool View">
+  <rect width="800" height="600" fill="#0B1726"/>
+  <rect x="80" y="90" width="640" height="260" fill="#12243B" stroke="#B99A57" stroke-width="2"/>
+  <path d="M120 350 L400 170 L680 350 Z" fill="#1C3554" stroke="#B99A57" stroke-width="2"/>
+  <rect x="110" y="390" width="580" height="120" rx="8" fill="#1C3554" stroke="#B99A57" stroke-width="2"/>
+  <line x1="150" y1="430" x2="650" y2="430" stroke="#B99A57" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="12 8"/>
+  <line x1="150" y1="470" x2="650" y2="470" stroke="#B99A57" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="12 8"/>
+  <text x="400" y="555" text-anchor="middle" fill="#B99A57" font-family="Georgia, serif" font-size="20" letter-spacing="3">NOVA ESTATE • TERRACE &amp; VIEW</text>
+</svg>

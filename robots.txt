@@ -1,0 +1,7 @@
+# NOVA ESTATE — robots.txt
+# Replace https://nova-estate.pages.dev with your final production URL after deployment.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://nova-estate.pages.dev/sitemap.xml

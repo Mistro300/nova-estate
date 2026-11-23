@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Luxury Apartment Exterior">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#12243B"/>
+      <stop offset="100%" stop-color="#1C3554"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky1)"/>
+  <rect x="0" y="470" width="800" height="130" fill="#0B1726"/>
+  <rect x="160" y="110" width="480" height="360" fill="#162B46" stroke="#B99A57" stroke-width="2"/>
+  <g fill="#B99A57" fill-opacity="0.22" stroke="#B99A57" stroke-width="1.5">
+    <rect x="200" y="150" width="110" height="75"/>
+    <rect x="345" y="150" width="110" height="75"/>
+    <rect x="490" y="150" width="110" height="75"/>
+    <rect x="200" y="255" width="110" height="75"/>
+    <rect x="345" y="255" width="110" height="75"/>
+    <rect x="490" y="255" width="110" height="75"/>
+    <rect x="200" y="360" width="110" height="80"/>
+    <rect x="490" y="360" width="110" height="80"/>
+  </g>
+  <rect x="355" y="360" width="90" height="110" fill="#B99A57" fill-opacity="0.35" stroke="#B99A57" stroke-width="2"/>
+  <text x="400" y="535" text-anchor="middle" fill="#B99A57" font-family="Georgia, serif" font-size="20" letter-spacing="3">NOVA ESTATE • RESIDENCE</text>
+</svg>

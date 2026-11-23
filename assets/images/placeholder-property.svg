@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="NOVA ESTATE Architectural Preview">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12243B" />
+      <stop offset="60%" stop-color="#1C3554" />
+      <stop offset="100%" stop-color="#0B1726" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGrad)" />
+  <g stroke="#B99A57" stroke-opacity="0.35" stroke-width="2" fill="none">
+    <rect x="140" y="180" width="220" height="280" />
+    <rect x="360" y="130" width="300" height="330" />
+    <line x1="80" y1="460" x2="720" y2="460" stroke-opacity="0.6" />
+    <rect x="180" y="220" width="50" height="65" />
+    <rect x="260" y="220" width="50" height="65" />
+    <rect x="180" y="315" width="50" height="65" />
+    <rect x="260" y="315" width="50" height="65" />
+    <rect x="410" y="180" width="75" height="80" />
+    <rect x="525" y="180" width="75" height="80" />
+    <rect x="410" y="290" width="75" height="80" />
+    <rect x="525" y="290" width="75" height="80" />
+  </g>
+  <text x="400" y="520" text-anchor="middle" fill="#B99A57" font-family="Georgia, serif" font-size="22" letter-spacing="4">NOVA ESTATE</text>
+</svg>

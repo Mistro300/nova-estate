@@ -1,0 +1,273 @@
+/* ==========================================================================
+   NOVA ESTATE — Responsive Breakpoints (assets/css/responsive.css)
+   Tested across: 1440, 1366, 1200, 1024, 992, 768, 576, 480, 375, 330px.
+   Includes automatic Filter Sidebar -> Mobile Filter Drawer transformation.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. LARGE LAPTOPS & DESKTOPS (<= 1200px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .properties-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. TABLETS & SMALL LAPTOPS (< 992px)
+   Filter Sidebar transforms into Mobile Filter Drawer
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  /* Mobile Navigation Drawer */
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: var(--header-height);
+    inset-inline: 0;
+    background-color: var(--brand-navy-deep);
+    border-bottom: 2px solid var(--accent-gold);
+    padding: var(--space-5) var(--container-pad);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-120%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform var(--transition-smooth),
+                opacity var(--transition-fast),
+                visibility var(--transition-fast);
+  }
+
+  .main-nav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+    width: 100%;
+  }
+
+  .nav-link {
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-body);
+  }
+
+  .nav-link--active {
+    background-color: rgba(185, 154, 87, 0.14);
+    color: var(--accent-gold);
+  }
+
+  .nav-link--active::after {
+    display: none;
+  }
+
+  /* Hero Quick Search Grid */
+  .hero-search__form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Value Pillars & Team Grids */
+  .pillars-grid,
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Listings Layout & Filter Drawer Transformation */
+  .listings-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-mobile-trigger {
+    display: inline-flex;
+  }
+
+  .filter-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: var(--z-drawer);
+    width: var(--drawer-width);
+    max-width: 92vw;
+    border-radius: 0;
+    background-color: var(--bg-page);
+    box-shadow: var(--shadow-drawer);
+    overflow-y: auto;
+    transform: translateX(105%);
+    visibility: hidden;
+    transition: transform var(--transition-smooth), visibility var(--transition-smooth);
+  }
+
+  .filter-panel.is-open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .filter-panel__close {
+    display: inline-flex;
+  }
+
+  /* Property Details, Development Hero, About & Contact Layouts */
+  .property-detail-grid,
+  .dev-hero-banner,
+  .about-story-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .property-header__price-box {
+    align-items: flex-start;
+  }
+
+  .cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-8);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. LANDSCAPE PHONES & SMALL TABLETS (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .section {
+    padding-block: var(--space-12);
+  }
+
+  .hero {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-12);
+  }
+
+  .hero-search {
+    padding: var(--space-5);
+  }
+
+  .hero-search__form {
+    grid-template-columns: 1fr;
+  }
+
+  .properties-grid,
+  .developments-grid,
+  .pillars-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .specs-grid,
+  .features-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. PORTRAIT PHONES (<= 576px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 576px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  .fav-trigger-btn__label {
+    display: none;
+  }
+
+  .listings-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .listings-toolbar__info,
+  .listings-toolbar__controls {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .specs-grid,
+  .features-list,
+  .dev-card__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .lightbox {
+    padding: var(--space-3);
+  }
+
+  .lightbox__nav {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. COMPACT PHONES (<= 375px down to 330px)
+   Guarantees zero horizontal overflow on 330px viewports
+   -------------------------------------------------------------------------- */
+@media (max-width: 380px) {
+  .brand-logo__en {
+    font-size: 1.2rem;
+  }
+
+  .brand-logo__sub {
+    font-size: 0.65rem;
+  }
+
+  .hero__stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .property-card__body,
+  .dev-card__body,
+  .detail-card,
+  .calc-card {
+    padding: var(--space-4);
+  }
+
+  .property-card__specs {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .filter-range-row {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-banner {
+    padding: var(--space-6);
+  }
+
+  .cta-banner__actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .cta-banner__actions .btn {
+    width: 100%;
+  }
+}

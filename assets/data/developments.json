@@ -1,0 +1,98 @@
+[
+  {
+    "id": "dev-001",
+    "name": "أوريليا ريزيدنس — Aurelia Residences",
+    "city": "القاهرة الجديدة",
+    "district": "التجمع الخامس — الجولدن سكوير",
+    "cover": "assets/images/developments/dev-cover.svg",
+    "gallery": [
+      "assets/images/developments/dev-cover.svg",
+      "assets/images/properties/prop-exterior.svg",
+      "assets/images/properties/prop-terrace.svg"
+    ],
+    "summary": "مجتمع سكني وإداري متكامل على مساحة 85 فداناً في قلب الجولدن سكوير، يجمع بين العمارة الأوروبية المعاصرة والمسطحات الخضراء المفتوحة بنسبة بنائية لا تتجاوز 20%.",
+    "amenities": [
+      "نادي اجتماعي ورياضي خاص Clubhouse على مساحة 4 أفدنة",
+      "مسارات مشي وجري ودراجات معزولة عن حركة السيارات بطول 4.5 كم",
+      "منطقة تجارية ومطاعم Fine Dining ومقاهي عالمية",
+      "بوابات دخول ذكية بالتعرف الضوئي وأمن 24/7",
+      "جراجات تحت الأرض مزودة بمحطات شحن للسيارات الكهربائية",
+      "بحيرات صناعية وحدائق نباتية متدرجة"
+    ],
+    "progressPercent": 78,
+    "deliveryYear": 2026,
+    "startingPriceEGP": 8450000
+  },
+  {
+    "id": "dev-002",
+    "name": "سولاريس بارك — Solaris West Park",
+    "city": "الشيخ زايد",
+    "district": "زايد الجديدة — الحزام الأخضر",
+    "cover": "assets/images/developments/dev-cover.svg",
+    "gallery": [
+      "assets/images/developments/dev-cover.svg",
+      "assets/images/properties/prop-terrace.svg",
+      "assets/images/properties/prop-interior.svg"
+    ],
+    "summary": "كمبوند فيلات وتاون هاوس منخفض الكثافة السكانية في امتداد الشيخ زايد، مصمم حول ملاعب جولف خضراء وممرات مشي مظللة تضمن الخصوصية والهدوء التام.",
+    "amenities": [
+      "إطلالات مباشرة على ملاعب الجولف والمسطحات الخضراء",
+      "مركز صحي متكامل Spa & Wellness Center",
+      "منطقة ألعاب أطفال تعليمية مؤمنة بالكامل",
+      "عيادات طبية وصيدلية تعمل على مدار الساعة",
+      "اعتماد أنظمة الطاقة الشمسية لإنارة المرافق العامة",
+      "منطقة مخصصة لرياضة الفروسية والتنس"
+    ],
+    "progressPercent": 90,
+    "deliveryYear": 2026,
+    "startingPriceEGP": 9100000
+  },
+  {
+    "id": "dev-003",
+    "name": "فيرتكس كابيتال — Vertex Capital District",
+    "city": "العاصمة الإدارية",
+    "district": "الحي السابع R7 ومنطقة الأعمال المركزية CBD",
+    "cover": "assets/images/developments/dev-cover.svg",
+    "gallery": [
+      "assets/images/developments/dev-cover.svg",
+      "assets/images/properties/prop-interior.svg",
+      "assets/images/properties/prop-exterior.svg"
+    ],
+    "summary": "مشروع متعدد الاستخدامات يدمج بين المجمعات السكنية الذكية بجوار الحي الدبلوماسي والأبراج الإدارية والتجارية المتصلة بشبكة النقل الذكي والمونوريل.",
+    "amenities": [
+      "بنية تحتية ذكية Smart City متصلة بالألياف الضوئية",
+      "مركز مؤتمرات وقاعات اجتماعات مشتركة لرجال الأعمال",
+      "حمامات سباحة مغطاة ومدفأة على مدار العام",
+      "تكييف مركزي موفر للطاقة وأنظمة إدارة مباني BMS",
+      "ساحة مطاعم وبوليفارد تجاري مفتوح",
+      "مواقف سيارات ذكية متعددة الطوابق"
+    ],
+    "progressPercent": 65,
+    "deliveryYear": 2027,
+    "startingPriceEGP": 6750000
+  },
+  {
+    "id": "dev-004",
+    "name": "أزور باي رأس الحكمة — Azure Bay North Coast",
+    "city": "الساحل الشمالي",
+    "district": "خليج رأس الحكمة وسيدي عبد الرحمن",
+    "cover": "assets/images/developments/dev-cover.svg",
+    "gallery": [
+      "assets/images/developments/dev-cover.svg",
+      "assets/images/properties/prop-terrace.svg",
+      "assets/images/properties/prop-exterior.svg"
+    ],
+    "summary": "منتجع ساحلي فاخر مبني بنظام المصاطب المتدرجة لضمان رؤية البحر أو اللاجون الكريستالي من 90% من الوحدات، مع واجهة شاطئية رملية بطول 1,200 متر.",
+    "amenities": [
+      "شاطئ رملي خاص بطول 1.2 كم ومياه فيروزية هادئة",
+      "بحيرات كريستالية قابلة للسباحة Crystal Lagoons على مساحة 18 فداناً",
+      "مارينا لليخوت ونادي شاطئي فاخر Beach Club",
+      "فندق بوتيك 5 نجوم يقدم خدمات فندقية لملاك الوحدات",
+      "أكوا بارك ومناطق رياضات مائية وغوص",
+      "ممشى ساحلي يضم أرقى المطاعم العالمية"
+    ],
+    "progressPercent": 82,
+    "deliveryYear": 2026,
+    "startingPriceEGP": 10500000
+  }
+]

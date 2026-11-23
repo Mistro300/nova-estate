@@ -1,0 +1,9 @@
+# OS & Editor metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Local archive bundles
+*.zip
