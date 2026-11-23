@@ -8,7 +8,8 @@
    1. LARGE LAPTOPS & DESKTOPS (<= 1200px)
    -------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
-  .properties-grid {
+  .properties-grid,
+  #home-featured-developments {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -79,6 +80,11 @@
 
   .hero__stats {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .hero-stat {
+    border-left: none;
   }
 
   /* Value Pillars & Team Grids */
@@ -125,13 +131,14 @@
   /* Property Details, Development Hero, About & Contact Layouts */
   .property-detail-grid,
   .dev-hero-banner,
-  .about-story-grid,
+  .about-vision-card,
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
-  .property-header__price-box {
-    align-items: flex-start;
+  .property-header__actions-stack {
+    flex-direction: row;
+    width: 100%;
   }
 
   .cta-banner {
@@ -146,16 +153,16 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .section {
-    padding-block: var(--space-12);
+    padding-block: var(--space-10);
   }
 
   .hero {
-    padding-top: var(--space-10);
-    padding-bottom: var(--space-12);
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-10);
   }
 
   .hero-search {
-    padding: var(--space-5);
+    padding: var(--space-4);
   }
 
   .hero-search__form {
@@ -163,15 +170,26 @@
   }
 
   .properties-grid,
+  .listings-layout .properties-grid,
   .developments-grid,
+  #home-featured-developments,
   .pillars-grid,
   .team-grid {
     grid-template-columns: 1fr;
   }
 
+  .metrics-highlight-grid,
   .specs-grid,
   .features-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-vision-card__top {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-badge-box {
+    width: 100%;
   }
 
   .footer-grid {
@@ -208,10 +226,19 @@
     width: 100%;
   }
 
+  .metrics-highlight-grid,
   .specs-grid,
   .features-list,
   .dev-card__meta {
     grid-template-columns: 1fr;
+  }
+
+  .gallery__thumb {
+    width: 110px;
+  }
+
+  .contact-form-card {
+    padding: var(--space-5);
   }
 
   .lightbox {
@@ -239,13 +266,13 @@
 
   .hero__stats {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--space-3);
   }
 
   .property-card__body,
   .dev-card__body,
   .detail-card,
-  .calc-card {
+  .calc-card--navy {
     padding: var(--space-4);
   }
 

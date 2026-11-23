@@ -155,10 +155,31 @@ function renderPropertyDetails(property, development) {
   const pricePerSqm = calculatePricePerSqm(property.priceEGP, property.areaSqm);
   const sqmEl = document.getElementById('property-price-per-sqm');
   if (sqmEl) {
-    sqmEl.textContent =
-      property.purpose === 'rent'
-        ? `متوسط إيجار المتر السنوي: ${formatNumber(pricePerSqm)} EGP / m²`
-        : `متوسط سعر المتر: ${formatNumber(pricePerSqm)} EGP / m²`;
+    sqmEl.textContent = `${formatNumber(pricePerSqm)} EGP / m²`;
+  }
+
+  // Top 4 Highlight Metric Boxes (Area, Bedrooms, Bathrooms, Delivery Year)
+  const topMetricsEl = document.getElementById('property-top-metrics');
+  if (topMetricsEl) {
+    topMetricsEl.innerHTML = '';
+    const metrics = [
+      { val: `${formatNumber(property.areaSqm)} m²`, label: 'المساحة' },
+      { val: Number(property.bedrooms) > 0 ? String(property.bedrooms) : 'إداري', label: 'غرف' },
+      { val: String(property.bathrooms), label: 'حمامات' },
+      { val: String(property.deliveryYear), label: 'استلام الوحدة' }
+    ];
+    metrics.forEach((m) => {
+      const card = document.createElement('div');
+      card.className = 'metric-highlight-box';
+      const v = document.createElement('strong');
+      v.className = 'metric-highlight-box__val num-tabular';
+      v.textContent = m.val;
+      const l = document.createElement('span');
+      l.className = 'metric-highlight-box__label';
+      l.textContent = m.label;
+      card.append(v, l);
+      topMetricsEl.appendChild(card);
+    });
   }
 
   // Header Favorite & Share Buttons
@@ -298,6 +319,7 @@ function initGalleryAndLightbox(property) {
 
   if (thumbsContainer) {
     thumbsContainer.innerHTML = '';
+    const thumbLabels = ['TERRACE & VIEW', 'RESIDENCE', 'INTERIOR'];
     galleryImages.forEach((imgSrc, idx) => {
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -308,11 +330,15 @@ function initGalleryAndLightbox(property) {
       const thumbImg = document.createElement('img');
       thumbImg.src = imgSrc;
       thumbImg.alt = `${property.title} — صورة ${idx + 1}`;
-      thumbImg.width = 200;
-      thumbImg.height = 150;
+      thumbImg.width = 240;
+      thumbImg.height = 160;
       bindImageFallback(thumbImg);
 
-      btn.appendChild(thumbImg);
+      const caption = document.createElement('span');
+      caption.className = 'gallery__thumb-caption';
+      caption.textContent = thumbLabels[idx % thumbLabels.length];
+
+      btn.append(thumbImg, caption);
       btn.addEventListener('click', () => setActiveGalleryImage(idx));
       thumbsContainer.appendChild(btn);
     });
@@ -476,6 +502,20 @@ function initInstallmentCalculator(property) {
   downRange.addEventListener('input', updateCalculation);
   yearsRange.addEventListener('input', updateCalculation);
   updateCalculation();
+
+  const scrollBtn = document.getElementById('calc-scroll-to-viewing');
+  if (scrollBtn) {
+    scrollBtn.addEventListener('click', () => {
+      const viewingSection = document.getElementById('viewing-appointment-section');
+      const nameInput = document.getElementById('viewing-name');
+      if (viewingSection) {
+        viewingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (nameInput) {
+        setTimeout(() => nameInput.focus(), 350);
+      }
+    });
+  }
 }
 
 /**

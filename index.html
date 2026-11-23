@@ -155,23 +155,23 @@
           </div>
         </div>
 
-        <!-- Editorial Portfolio Metrics -->
+        <!-- Editorial Portfolio Metrics (Solid Gold Bar matching Screen 1 Mockup) -->
         <div class="hero__stats" aria-label="إحصائيات المحفظة العقارية التجريبية">
           <div class="hero-stat">
-            <span class="hero-stat__num num-tabular">18</span>
-            <span class="hero-stat__label">وحدة سكنية وتجارية موثقة المواصفات</span>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat__num num-tabular">04</span>
-            <span class="hero-stat__label">مشروعات عمرانية متكاملة الخدمات</span>
+            <span class="hero-stat__num num-tabular">2026</span>
+            <span class="hero-stat__label">استلام قريب</span>
           </div>
           <div class="hero-stat">
             <span class="hero-stat__num num-tabular">10%</span>
-            <span class="hero-stat__label">مقدم تعاقد يبدأ من 10% في حاسبة الأقساط</span>
+            <span class="hero-stat__label">مقدم تعاقد</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat__num num-tabular">2026</span>
-            <span class="hero-stat__label">دفعات استلام فورية وقريبة المدى</span>
+            <span class="hero-stat__num num-tabular">04</span>
+            <span class="hero-stat__label">مشروعات عمرانية</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat__num num-tabular">18</span>
+            <span class="hero-stat__label">وحدة سكنية وتجارية</span>
           </div>
         </div>
       </div>
@@ -196,43 +196,41 @@
           </a>
         </div>
 
-        <!-- Properties Grid (Hydrated dynamically by JS, with initial static cards following exact anatomy) -->
+        <!-- Properties Grid (Hydrated dynamically by JS, with initial static cards matching Screen 1) -->
         <div class="properties-grid" id="home-featured-properties" aria-live="polite">
           <!-- Card 1: apt-001 -->
           <article class="property-card" data-property-id="apt-001">
-            <div class="property-card__media">
-              <a href="property.html?id=apt-001" tabindex="-1" aria-hidden="true">
-                <img
-                  src="assets/images/properties/prop-exterior.svg"
-                  alt="شقة بانورامية بإطلالة على الحديقة المركزية في القاهرة الجديدة"
-                  class="property-card__img"
-                  width="800"
-                  height="600"
-                  loading="eager"
+            <div class="property-card__media-wrap">
+              <div class="property-card__media">
+                <a href="property.html?id=apt-001" tabindex="-1" aria-hidden="true">
+                  <img
+                    src="assets/images/properties/villa-modern.jpg"
+                    alt="شقة بانورامية بإطلالة على الحديقة المركزية في القاهرة الجديدة"
+                    class="property-card__img"
+                    width="800"
+                    height="600"
+                    loading="eager"
+                  >
+                </a>
+                <div class="property-card__badges">
+                  <span class="badge badge--purpose">للبيع</span>
+                </div>
+                <button
+                  type="button"
+                  class="property-card__fav-btn"
+                  data-fav-btn="apt-001"
+                  aria-pressed="false"
+                  aria-label="إضافة شقة بانورامية بإطلالة على الحديقة المركزية إلى المفضلة"
                 >
-              </a>
-              <div class="property-card__badges">
-                <span class="badge badge--purpose">للبيع</span>
-                <span class="badge badge--available">متاح</span>
+                  <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-heart"></use>
+                  </svg>
+                </button>
               </div>
-              <button
-                type="button"
-                class="property-card__fav-btn"
-                data-fav-btn="apt-001"
-                aria-pressed="false"
-                aria-label="إضافة شقة بانورامية بإطلالة على الحديقة المركزية إلى المفضلة"
-              >
-                <svg class="icon icon--md" aria-hidden="true" focusable="false">
-                  <use href="assets/icons/sprite.svg#icon-heart"></use>
-                </svg>
-              </button>
+              <div class="property-card__price-pill num-tabular">8,450,000 EGP</div>
             </div>
 
             <div class="property-card__body">
-              <div class="property-card__price-row">
-                <span class="property-card__price">8,450,000 EGP</span>
-                <span class="property-card__type-tag">شقة فاخرة</span>
-              </div>
               <h3 class="property-card__title">
                 <a href="property.html?id=apt-001">شقة بانورامية بإطلالة على الحديقة المركزية</a>
               </h3>
@@ -248,69 +246,137 @@
                   <svg class="icon icon--sm" aria-hidden="true" focusable="false">
                     <use href="assets/icons/sprite.svg#icon-bed"></use>
                   </svg>
-                  <span><strong class="num-tabular">3</strong> غرف</span>
+                  <span><strong class="num-tabular">3</strong></span>
                 </span>
                 <span class="property-card__spec-item">
                   <svg class="icon icon--sm" aria-hidden="true" focusable="false">
                     <use href="assets/icons/sprite.svg#icon-bath"></use>
                   </svg>
-                  <span><strong class="num-tabular">3</strong> حمام</span>
+                  <span><strong class="num-tabular">3</strong></span>
                 </span>
                 <span class="property-card__spec-item">
                   <svg class="icon icon--sm" aria-hidden="true" focusable="false">
                     <use href="assets/icons/sprite.svg#icon-area"></use>
                   </svg>
-                  <span class="num-tabular">185 m²</span>
+                  <span class="num-tabular">area: 185 m²</span>
                 </span>
               </div>
 
               <div class="property-card__footer">
-                <span>استلام <strong class="num-tabular">2026</strong> • الترا لوكس</span>
+                <span>شقة فاخرة • 2026</span>
                 <a href="property.html?id=apt-001" class="property-card__cta">
-                  <span>التفاصيل</span>
-                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
-                    <use href="assets/icons/sprite.svg#icon-chevron-left"></use>
-                  </svg>
+                  <span>تفاصيل الوحدة</span>
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- Card 2: vil-006 -->
-          <article class="property-card" data-property-id="vil-006">
-            <div class="property-card__media">
-              <a href="property.html?id=vil-006" tabindex="-1" aria-hidden="true">
-                <img
-                  src="assets/images/properties/prop-terrace.svg"
-                  alt="فيلا كلاسيكية بإطلالة جولف مفتوحة في الشيخ زايد"
-                  class="property-card__img"
-                  width="800"
-                  height="600"
-                  loading="lazy"
+          <!-- Card 2: vil-003 -->
+          <article class="property-card" data-property-id="vil-003">
+            <div class="property-card__media-wrap">
+              <div class="property-card__media">
+                <a href="property.html?id=vil-003" tabindex="-1" aria-hidden="true">
+                  <img
+                    src="assets/images/properties/villa-contemporary.jpg"
+                    alt="فيلا مستقلة بحديقة خاصة ومسبح مدفأ في القاهرة الجديدة"
+                    class="property-card__img"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  >
+                </a>
+                <div class="property-card__badges">
+                  <span class="badge badge--purpose">للبيع</span>
+                </div>
+                <button
+                  type="button"
+                  class="property-card__fav-btn"
+                  data-fav-btn="vil-003"
+                  aria-pressed="false"
+                  aria-label="إضافة فيلا مستقلة بحديقة خاصة ومسبح مدفأ إلى المفضلة"
                 >
-              </a>
-              <div class="property-card__badges">
-                <span class="badge badge--purpose">للبيع</span>
-                <span class="badge badge--available">متاح</span>
+                  <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-heart"></use>
+                  </svg>
+                </button>
               </div>
-              <button
-                type="button"
-                class="property-card__fav-btn"
-                data-fav-btn="vil-006"
-                aria-pressed="false"
-                aria-label="إضافة فيلا كلاسيكية بإطلالة جولف مفتوحة إلى المفضلة"
-              >
-                <svg class="icon icon--md" aria-hidden="true" focusable="false">
-                  <use href="assets/icons/sprite.svg#icon-heart"></use>
-                </svg>
-              </button>
+              <div class="property-card__price-pill num-tabular">28,500,000 EGP</div>
             </div>
 
             <div class="property-card__body">
-              <div class="property-card__price-row">
-                <span class="property-card__price">34,000,000 EGP</span>
-                <span class="property-card__type-tag">فيلا مستقلة</span>
+              <h3 class="property-card__title">
+                <a href="property.html?id=vil-003">فيلا مستقلة بحديقة خاصة ومسبح مدفأ</a>
+              </h3>
+              <p class="property-card__location">
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-map-pin"></use>
+                </svg>
+                <span>القاهرة الجديدة — امتداد الجولدن سكوير</span>
+              </p>
+
+              <div class="property-card__specs" aria-label="مواصفات العقار">
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-bed"></use>
+                  </svg>
+                  <span><strong class="num-tabular">5</strong></span>
+                </span>
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-bath"></use>
+                  </svg>
+                  <span><strong class="num-tabular">6</strong></span>
+                </span>
+                <span class="property-card__spec-item">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-area"></use>
+                  </svg>
+                  <span class="num-tabular">area: 460 m²</span>
+                </span>
               </div>
+
+              <div class="property-card__footer">
+                <span>فيلا مستقلة • 2026</span>
+                <a href="property.html?id=vil-003" class="property-card__cta">
+                  <span>تفاصيل الوحدة</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: vil-006 -->
+          <article class="property-card" data-property-id="vil-006">
+            <div class="property-card__media-wrap">
+              <div class="property-card__media">
+                <a href="property.html?id=vil-006" tabindex="-1" aria-hidden="true">
+                  <img
+                    src="assets/images/properties/villa-pool.jpg"
+                    alt="فيلا كلاسيكية بإطلالة جولف مفتوحة في الشيخ زايد"
+                    class="property-card__img"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  >
+                </a>
+                <div class="property-card__badges">
+                  <span class="badge badge--purpose">للبيع</span>
+                </div>
+                <button
+                  type="button"
+                  class="property-card__fav-btn"
+                  data-fav-btn="vil-006"
+                  aria-pressed="false"
+                  aria-label="إضافة فيلا كلاسيكية بإطلالة جولف مفتوحة إلى المفضلة"
+                >
+                  <svg class="icon icon--md" aria-hidden="true" focusable="false">
+                    <use href="assets/icons/sprite.svg#icon-heart"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="property-card__price-pill num-tabular">34,000,000 EGP</div>
+            </div>
+
+            <div class="property-card__body">
               <h3 class="property-card__title">
                 <a href="property.html?id=vil-006">فيلا كلاسيكية بإطلالة جولف مفتوحة</a>
               </h3>
@@ -326,107 +392,26 @@
                   <svg class="icon icon--sm" aria-hidden="true" focusable="false">
                     <use href="assets/icons/sprite.svg#icon-bed"></use>
                   </svg>
-                  <span><strong class="num-tabular">6</strong> غرف</span>
+                  <span><strong class="num-tabular">6</strong></span>
                 </span>
                 <span class="property-card__spec-item">
                   <svg class="icon icon--sm" aria-hidden="true" focusable="false">
                     <use href="assets/icons/sprite.svg#icon-bath"></use>
                   </svg>
-                  <span><strong class="num-tabular">6</strong> حمام</span>
+                  <span><strong class="num-tabular">6</strong></span>
                 </span>
                 <span class="property-card__spec-item">
                   <svg class="icon icon--sm" aria-hidden="true" focusable="false">
                     <use href="assets/icons/sprite.svg#icon-area"></use>
                   </svg>
-                  <span class="num-tabular">520 m²</span>
+                  <span class="num-tabular">area: 520 m²</span>
                 </span>
               </div>
 
               <div class="property-card__footer">
-                <span>استلام <strong class="num-tabular">2026</strong> • نصف تشطيب</span>
+                <span>فيلا مستقلة • 2026</span>
                 <a href="property.html?id=vil-006" class="property-card__cta">
-                  <span>التفاصيل</span>
-                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
-                    <use href="assets/icons/sprite.svg#icon-chevron-left"></use>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3: twn-016 -->
-          <article class="property-card" data-property-id="twn-016">
-            <div class="property-card__media">
-              <a href="property.html?id=twn-016" tabindex="-1" aria-hidden="true">
-                <img
-                  src="assets/images/properties/prop-exterior.svg"
-                  alt="تاون هاوس بإطلالة لاجون مباشرة في رأس الحكمة الساحل الشمالي"
-                  class="property-card__img"
-                  width="800"
-                  height="600"
-                  loading="lazy"
-                >
-              </a>
-              <div class="property-card__badges">
-                <span class="badge badge--purpose">للبيع</span>
-                <span class="badge badge--available">متاح</span>
-              </div>
-              <button
-                type="button"
-                class="property-card__fav-btn"
-                data-fav-btn="twn-016"
-                aria-pressed="false"
-                aria-label="إضافة تاون هاوس بإطلالة لاجون مباشرة إلى المفضلة"
-              >
-                <svg class="icon icon--md" aria-hidden="true" focusable="false">
-                  <use href="assets/icons/sprite.svg#icon-heart"></use>
-                </svg>
-              </button>
-            </div>
-
-            <div class="property-card__body">
-              <div class="property-card__price-row">
-                <span class="property-card__price">18,900,000 EGP</span>
-                <span class="property-card__type-tag">تاون هاوس</span>
-              </div>
-              <h3 class="property-card__title">
-                <a href="property.html?id=twn-016">تاون هاوس بإطلالة لاجون مباشرة برأس الحكمة</a>
-              </h3>
-              <p class="property-card__location">
-                <svg class="icon icon--sm" aria-hidden="true" focusable="false">
-                  <use href="assets/icons/sprite.svg#icon-map-pin"></use>
-                </svg>
-                <span>الساحل الشمالي — خليج رأس الحكمة</span>
-              </p>
-
-              <div class="property-card__specs" aria-label="مواصفات العقار">
-                <span class="property-card__spec-item">
-                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
-                    <use href="assets/icons/sprite.svg#icon-bed"></use>
-                  </svg>
-                  <span><strong class="num-tabular">3</strong> غرف</span>
-                </span>
-                <span class="property-card__spec-item">
-                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
-                    <use href="assets/icons/sprite.svg#icon-bath"></use>
-                  </svg>
-                  <span><strong class="num-tabular">4</strong> حمام</span>
-                </span>
-                <span class="property-card__spec-item">
-                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
-                    <use href="assets/icons/sprite.svg#icon-area"></use>
-                  </svg>
-                  <span class="num-tabular">235 m²</span>
-                </span>
-              </div>
-
-              <div class="property-card__footer">
-                <span>استلام <strong class="num-tabular">2026</strong> • تشطيب فندقي</span>
-                <a href="property.html?id=twn-016" class="property-card__cta">
-                  <span>التفاصيل</span>
-                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
-                    <use href="assets/icons/sprite.svg#icon-chevron-left"></use>
-                  </svg>
+                  <span>تفاصيل الوحدة</span>
                 </a>
               </div>
             </div>

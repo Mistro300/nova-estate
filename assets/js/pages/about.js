@@ -35,10 +35,24 @@ export async function initAboutPage() {
       btn.setAttribute('aria-expanded', isInitiallyOpen ? 'true' : 'false');
       btn.setAttribute('aria-controls', panelId);
 
+      const rightWrap = document.createElement('span');
+      rightWrap.className = 'faq-trigger__right';
+
+      const iconBadge = document.createElement('span');
+      iconBadge.className = 'faq-trigger__badge';
+      iconBadge.appendChild(createSvgIcon('icon-chevron-down', 'icon--sm'));
+
       const questionSpan = document.createElement('span');
       questionSpan.textContent = faq.question;
 
-      btn.append(questionSpan, createSvgIcon('icon-chevron-down', 'icon--sm'));
+      rightWrap.append(iconBadge, questionSpan);
+
+      const plusSign = document.createElement('span');
+      plusSign.className = 'faq-trigger__plus';
+      plusSign.setAttribute('aria-hidden', 'true');
+      plusSign.textContent = isInitiallyOpen ? '−' : '+';
+
+      btn.append(rightWrap, plusSign);
       h3.appendChild(btn);
 
       const panel = document.createElement('div');
@@ -56,6 +70,7 @@ export async function initAboutPage() {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         panel.hidden = expanded;
+        plusSign.textContent = expanded ? '+' : '−';
       });
 
       item.append(h3, panel);

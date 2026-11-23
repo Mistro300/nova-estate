@@ -1,6 +1,8 @@
 /* ==========================================================================
    NOVA ESTATE — UI Rendering & Formatting Helpers (assets/js/ui.js)
    Uses safe DOM creation (textContent) and local SVG sprite icons.
+   Matches the Luxury Editorial Mockup Card Anatomy (Gold Price Badge,
+   Gold Delivery Badge, Progress Bars, and Tabular Numerals).
    ========================================================================== */
 
 export const PLACEHOLDER_IMAGE = 'assets/images/placeholder-property.svg';
@@ -108,8 +110,11 @@ export function attachAllImageFallbacks(root = document) {
 }
 
 /**
- * Builds a complete Property Card DOM element following the exact Luxury Editorial anatomy.
- * Uses safe textContent assignments for all data fields.
+ * Builds a complete Property Card DOM element matching the uploaded Luxury Design:
+ * - Rounded image with circular Favorite button top-left
+ * - Status badge top-right
+ * - Overlapping Solid Gold Price Pill at bottom-right of image
+ * - Right-aligned Title, City/District subtitle, Specs row, and "تفاصيل الوحدة" link
  * @param {Object} property
  * @param {boolean} isFavorite
  * @returns {HTMLElement}
@@ -126,6 +131,9 @@ export function createPropertyCard(property, isFavorite = false) {
       : PLACEHOLDER_IMAGE;
 
   // 1. Media container
+  const mediaWrap = document.createElement('div');
+  mediaWrap.className = 'property-card__media-wrap';
+
   const media = document.createElement('div');
   media.className = 'property-card__media';
 
@@ -145,7 +153,7 @@ export function createPropertyCard(property, isFavorite = false) {
   imgLink.appendChild(img);
   media.appendChild(imgLink);
 
-  // Badges (Top-Right in RTL)
+  // Top-Right Status/Purpose Badges
   const badges = document.createElement('div');
   badges.className = 'property-card__badges';
 
@@ -154,11 +162,13 @@ export function createPropertyCard(property, isFavorite = false) {
   purposeBadge.textContent = PURPOSE_LABELS[property.purpose] || 'للبيع';
   badges.appendChild(purposeBadge);
 
-  const statusBadge = document.createElement('span');
-  const statusClass = STATUS_BADGE_CLASSES[property.status] || 'badge--available';
-  statusBadge.className = `badge ${statusClass}`;
-  statusBadge.textContent = STATUS_LABELS[property.status] || 'متاح';
-  badges.appendChild(statusBadge);
+  if (property.status && property.status !== 'available') {
+    const statusBadge = document.createElement('span');
+    const statusClass = STATUS_BADGE_CLASSES[property.status] || 'badge--available';
+    statusBadge.className = `badge ${statusClass}`;
+    statusBadge.textContent = STATUS_LABELS[property.status] || 'متاح';
+    badges.appendChild(statusBadge);
+  }
 
   media.appendChild(badges);
 
@@ -179,26 +189,19 @@ export function createPropertyCard(property, isFavorite = false) {
   );
   media.appendChild(favBtn);
 
-  article.appendChild(media);
+  mediaWrap.appendChild(media);
+
+  // Overlapping Bottom-Right Solid Gold Price Badge
+  const pricePill = document.createElement('div');
+  pricePill.className = 'property-card__price-pill num-tabular';
+  pricePill.textContent = formatPriceEGP(property.priceEGP, property.purpose);
+  mediaWrap.appendChild(pricePill);
+
+  article.appendChild(mediaWrap);
 
   // 2. Card Body
   const body = document.createElement('div');
   body.className = 'property-card__body';
-
-  // Price Row
-  const priceRow = document.createElement('div');
-  priceRow.className = 'property-card__price-row';
-
-  const priceEl = document.createElement('span');
-  priceEl.className = 'property-card__price';
-  priceEl.textContent = formatPriceEGP(property.priceEGP, property.purpose);
-
-  const typeTag = document.createElement('span');
-  typeTag.className = 'property-card__type-tag';
-  typeTag.textContent = TYPE_LABELS[property.type] || property.type;
-
-  priceRow.append(priceEl, typeTag);
-  body.appendChild(priceRow);
 
   // Title
   const titleEl = document.createElement('h3');
@@ -209,7 +212,7 @@ export function createPropertyCard(property, isFavorite = false) {
   titleEl.appendChild(titleLink);
   body.appendChild(titleEl);
 
-  // Location
+  // Location Subtitle
   const locationEl = document.createElement('p');
   locationEl.className = 'property-card__location';
   locationEl.appendChild(createSvgIcon('icon-map-pin', 'icon--sm'));
@@ -232,9 +235,9 @@ export function createPropertyCard(property, isFavorite = false) {
     const bedNum = document.createElement('strong');
     bedNum.className = 'num-tabular';
     bedNum.textContent = String(property.bedrooms);
-    bedText.append(bedNum, ' غرف');
+    bedText.append(bedNum);
   } else {
-    bedText.textContent = 'إداري/تجاري';
+    bedText.textContent = 'إداري';
   }
   bedItem.appendChild(bedText);
 
@@ -242,12 +245,10 @@ export function createPropertyCard(property, isFavorite = false) {
   const bathItem = document.createElement('span');
   bathItem.className = 'property-card__spec-item';
   bathItem.appendChild(createSvgIcon('icon-bath', 'icon--sm'));
-  const bathText = document.createElement('span');
   const bathNum = document.createElement('strong');
   bathNum.className = 'num-tabular';
   bathNum.textContent = String(property.bathrooms);
-  bathText.append(bathNum, ' حمام');
-  bathItem.appendChild(bathText);
+  bathItem.appendChild(bathNum);
 
   // Area
   const areaItem = document.createElement('span');
@@ -255,26 +256,25 @@ export function createPropertyCard(property, isFavorite = false) {
   areaItem.appendChild(createSvgIcon('icon-area', 'icon--sm'));
   const areaText = document.createElement('span');
   areaText.className = 'num-tabular';
-  areaText.textContent = `${formatNumber(property.areaSqm)} m²`;
+  areaText.textContent = `area: ${formatNumber(property.areaSqm)} m²`;
   areaItem.appendChild(areaText);
 
   specsEl.append(bedItem, bathItem, areaItem);
   body.appendChild(specsEl);
 
-  // Footer
+  // Footer Link ("تفاصيل الوحدة")
   const footerEl = document.createElement('div');
   footerEl.className = 'property-card__footer';
 
   const deliverySpan = document.createElement('span');
-  const shortFinishing = String(property.finishing || '').split(' ').slice(0, 3).join(' ');
-  deliverySpan.textContent = `استلام ${property.deliveryYear} • ${shortFinishing}`;
+  deliverySpan.textContent = `${TYPE_LABELS[property.type] || property.type} • ${property.deliveryYear}`;
 
   const ctaLink = document.createElement('a');
   ctaLink.href = detailUrl;
   ctaLink.className = 'property-card__cta';
   const ctaText = document.createElement('span');
-  ctaText.textContent = 'التفاصيل';
-  ctaLink.append(ctaText, createSvgIcon('icon-chevron-left', 'icon--sm'));
+  ctaText.textContent = 'تفاصيل الوحدة';
+  ctaLink.append(ctaText);
 
   footerEl.append(deliverySpan, ctaLink);
   body.appendChild(footerEl);
@@ -284,7 +284,12 @@ export function createPropertyCard(property, isFavorite = false) {
 }
 
 /**
- * Builds a Development Card DOM element with dynamic unit count and progress bar.
+ * Builds a Development Card DOM element matching the uploaded Developments Mockup:
+ * - Architectural image with overlapping Gold Delivery Year Badge (2026 / 2027)
+ * - Project Name & City subtitle
+ * - Starting Price row with Gold price value
+ * - Gold Progress Bar with percentage on the right/left
+ * - Full-width Gold CTA button "وحدات المشروع"
  * @param {Object} dev
  * @param {number} unitsCount
  * @returns {HTMLElement}
@@ -296,7 +301,10 @@ export function createDevelopmentCard(dev, unitsCount = 0) {
 
   const detailUrl = `development.html?id=${encodeURIComponent(dev.id)}`;
 
-  // Media
+  // Media Wrapper
+  const mediaWrap = document.createElement('div');
+  mediaWrap.className = 'dev-card__media-wrap';
+
   const media = document.createElement('div');
   media.className = 'dev-card__media';
 
@@ -316,50 +324,64 @@ export function createDevelopmentCard(dev, unitsCount = 0) {
   imgLink.appendChild(img);
   media.appendChild(imgLink);
 
-  const badges = document.createElement('div');
-  badges.className = 'dev-card__overlay-badges';
-
-  const cityBadge = document.createElement('span');
-  cityBadge.className = 'badge badge--purpose';
-  cityBadge.textContent = dev.city;
-
+  // Units count badge top-right
   const unitsBadge = document.createElement('span');
-  unitsBadge.className = 'badge badge--gold';
-  unitsBadge.textContent = `${unitsCount} وحدات مدرجة`;
+  unitsBadge.className = 'dev-card__units-tag';
+  unitsBadge.textContent = `${unitsCount} وحدات`;
+  media.appendChild(unitsBadge);
 
-  badges.append(cityBadge, unitsBadge);
-  media.appendChild(badges);
-  article.appendChild(media);
+  mediaWrap.appendChild(media);
+
+  // Overlapping Gold Delivery Year Pill
+  const yearPill = document.createElement('span');
+  yearPill.className = 'dev-card__year-pill num-tabular';
+  yearPill.textContent = String(dev.deliveryYear);
+  mediaWrap.appendChild(yearPill);
+
+  article.appendChild(mediaWrap);
 
   // Body
   const body = document.createElement('div');
   body.className = 'dev-card__body';
 
+  // Extract clean Arabic title
+  const cleanTitle = String(dev.name).split('—')[0].trim();
+
   const titleEl = document.createElement('h3');
   titleEl.className = 'dev-card__title';
   const titleLink = document.createElement('a');
   titleLink.href = detailUrl;
-  titleLink.textContent = dev.name;
+  titleLink.textContent = cleanTitle;
   titleEl.appendChild(titleLink);
   body.appendChild(titleEl);
 
-  const summaryEl = document.createElement('p');
-  summaryEl.className = 'dev-card__summary';
-  summaryEl.textContent = dev.summary;
-  body.appendChild(summaryEl);
+  const cityEl = document.createElement('p');
+  cityEl.className = 'dev-card__city';
+  cityEl.textContent = dev.city;
+  body.appendChild(cityEl);
 
-  // Progress bar
-  const progressWrap = document.createElement('div');
-  progressWrap.className = 'dev-card__progress';
+  // Starting Price Row
+  const priceRow = document.createElement('div');
+  priceRow.className = 'dev-card__price-row';
 
-  const progressHeader = document.createElement('div');
-  progressHeader.className = 'dev-card__progress-header';
-  const progressLabel = document.createElement('span');
-  progressLabel.textContent = 'نسبة الإنجاز الإنشائي';
-  const progressVal = document.createElement('span');
-  progressVal.className = 'num-tabular';
-  progressVal.textContent = `${dev.progressPercent}%`;
-  progressHeader.append(progressLabel, progressVal);
+  const priceLabel = document.createElement('span');
+  priceLabel.className = 'dev-card__price-label';
+  priceLabel.textContent = 'السعر المبدئي';
+
+  const priceVal = document.createElement('span');
+  priceVal.className = 'dev-card__price-val num-tabular';
+  priceVal.textContent = `${formatNumber(dev.startingPriceEGP)} EGP`;
+
+  priceRow.append(priceLabel, priceVal);
+  body.appendChild(priceRow);
+
+  // Progress bar row (Percentage + Bar inline like mockup)
+  const progressRow = document.createElement('div');
+  progressRow.className = 'dev-card__progress-row';
+
+  const pctVal = document.createElement('span');
+  pctVal.className = 'dev-card__progress-pct num-tabular';
+  pctVal.textContent = `${dev.progressPercent}%`;
 
   const bar = document.createElement('div');
   bar.className = 'progress-bar';
@@ -374,48 +396,15 @@ export function createDevelopmentCard(dev, unitsCount = 0) {
   fill.style.width = `${Math.min(100, Math.max(0, Number(dev.progressPercent) || 0))}%`;
   bar.appendChild(fill);
 
-  progressWrap.append(progressHeader, bar);
-  body.appendChild(progressWrap);
+  progressRow.append(pctVal, bar);
+  body.appendChild(progressRow);
 
-  // Meta Footer
-  const meta = document.createElement('div');
-  meta.className = 'dev-card__meta';
-
-  const priceMeta = document.createElement('div');
-  priceMeta.className = 'dev-card__meta-item';
-  const priceLabel = document.createElement('span');
-  priceLabel.className = 'dev-card__meta-label';
-  priceLabel.textContent = 'السعر الابتدائي';
-  const priceVal = document.createElement('span');
-  priceVal.className = 'dev-card__meta-val num-tabular';
-  priceVal.textContent = `${formatNumber(dev.startingPriceEGP)} EGP`;
-  priceMeta.append(priceLabel, priceVal);
-
-  const yearMeta = document.createElement('div');
-  yearMeta.className = 'dev-card__meta-item';
-  const yearLabel = document.createElement('span');
-  yearLabel.className = 'dev-card__meta-label';
-  yearLabel.textContent = 'سنة التسليم';
-  const yearVal = document.createElement('span');
-  yearVal.className = 'dev-card__meta-val num-tabular';
-  yearVal.textContent = String(dev.deliveryYear);
-  yearMeta.append(yearLabel, yearVal);
-
-  const actionMeta = document.createElement('div');
-  actionMeta.className = 'dev-card__meta-item';
-  const actionLabel = document.createElement('span');
-  actionLabel.className = 'dev-card__meta-label';
-  actionLabel.textContent = 'استكشاف';
-  const actionLink = document.createElement('a');
-  actionLink.href = detailUrl;
-  actionLink.className = 'property-card__cta';
-  const actionText = document.createElement('span');
-  actionText.textContent = 'وحدات المشروع';
-  actionLink.append(actionText, createSvgIcon('icon-chevron-left', 'icon--sm'));
-  actionMeta.append(actionLabel, actionLink);
-
-  meta.append(priceMeta, yearMeta, actionMeta);
-  body.appendChild(meta);
+  // Full-width Gold CTA button
+  const ctaBtn = document.createElement('a');
+  ctaBtn.href = detailUrl;
+  ctaBtn.className = 'btn btn--primary btn--full dev-card__btn';
+  ctaBtn.textContent = 'وحدات المشروع';
+  body.appendChild(ctaBtn);
 
   article.appendChild(body);
   return article;

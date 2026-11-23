@@ -164,6 +164,15 @@ function syncFormWithFilterState() {
     favCheckbox.checked = Boolean(currentFilters.favorites);
   }
 
+  // Sync interactive bedroom pills ([data-bed-val])
+  const bedPills = document.querySelectorAll('[data-bed-val]');
+  const activeBedStr = currentFilters.bedrooms !== null ? String(currentFilters.bedrooms) : '';
+  bedPills.forEach((pill) => {
+    const isMatch = pill.dataset.bedVal === activeBedStr;
+    pill.classList.toggle('is-active', isMatch);
+    pill.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+  });
+
   const swapNotice = document.getElementById('price-swap-notice');
   if (swapNotice) {
     swapNotice.hidden = !currentFilters.priceSwapped;
@@ -434,6 +443,21 @@ function bindFilterControls() {
         }, 180);
       });
     }
+
+    // Interactive Bedroom Quick-Select Pills
+    form.addEventListener('click', (event) => {
+      const pill = event.target.closest('[data-bed-val]');
+      if (!pill) return;
+      event.preventDefault();
+      const bedSelect = document.getElementById('filter-bedrooms');
+      const clickedVal = pill.dataset.bedVal;
+      if (bedSelect) {
+        bedSelect.value = bedSelect.value === clickedVal ? '' : clickedVal;
+      }
+      readFormIntoFilterState();
+      syncFormWithFilterState();
+      applyFiltersAndRender(true);
+    });
   }
 
   if (sortSelect) {

@@ -20,9 +20,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0074,31.4913",
     "description": "وحدة سكنية فاخرة في قلب الجولدن سكوير تتميز بواجهات زجاجية مزدوجة عازلة للصوت والحرارة مع تراس رحب يطل مباشرة على المسطحات الخضراء والبحيرات الصناعية.",
     "images": [
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-interior.svg",
-      "assets/images/properties/prop-terrace.svg"
+      "assets/images/properties/villa-modern.jpg",
+      "assets/images/properties/interior-luxury.jpg",
+      "assets/images/properties/villa-sunset.jpg"
     ],
     "features": [
       "إطلالة مفتوحة على الحديقة المركزية",
@@ -54,9 +54,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0254,31.4781",
     "description": "شقة تنفيذية مفروشة بتصميم عصري على بُعد دقائق من المقرات الإدارية الكبرى، مثالية للمديرين التنفيذيين والدبلوماسيين مع خدمات صيانة ونظافة دورية.",
     "images": [
-      "assets/images/properties/prop-interior.svg",
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-terrace.svg"
+      "assets/images/properties/interior-luxury.jpg",
+      "assets/images/properties/villa-modern.jpg",
+      "assets/images/properties/villa-contemporary.jpg"
     ],
     "features": [
       "فرش أوروبي متكامل وأجهزة مطبخ مدمجة",
@@ -87,9 +87,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0112,31.5021",
     "description": "فيلا مستقلة ذات خصوصية تامة على قطعة أرض مساحتها 620 متراً مربعاً، تضم منطقة استقبال مزدوجة الارتفاع Double Height وجناح نوم رئيسي بإطلالة بانورامية.",
     "images": [
-      "assets/images/properties/prop-terrace.svg",
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-interior.svg"
+      "assets/images/properties/villa-contemporary.jpg",
+      "assets/images/properties/villa-sunset.jpg",
+      "assets/images/properties/interior-luxury.jpg"
     ],
     "features": [
       "حديقة خاصة بمساحة 340 متر مربع",
@@ -121,9 +121,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0311,31.5204",
     "description": "دوبلكس يجمع بين مزايا الفيلا المستقلة وأمان الكمبوند، مع مدخل خاص من الحديقة وتوزيع ذكي يفصل طابق الاستقبال والمعيشة عن طابق غرف النوم.",
     "images": [
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-terrace.svg",
-      "assets/images/properties/prop-interior.svg"
+      "assets/images/properties/villa-modern.jpg",
+      "assets/images/properties/villa-pool.jpg",
+      "assets/images/properties/interior-luxury.jpg"
     ],
     "features": [
       "مدخل خاص مستقل من الحديقة",
@@ -154,9 +154,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0188,31.4352",
     "description": "وحدة إدارية رفيعة المستوى في مبنى حاصل على شهادة الاستدامة LEED، مصممة للشركات الاستشارية والمؤسسات المالية مع قاعات اجتماعات مشتركة.",
     "images": [
-      "assets/images/properties/prop-interior.svg",
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-terrace.svg"
+      "assets/images/properties/commercial-hq.jpg",
+      "assets/images/properties/interior-luxury.jpg",
+      "assets/images/properties/villa-modern.jpg"
     ],
     "features": [
       "واجهة زجاجية Curtain Wall عازلة للحرارة",
@@ -187,9 +187,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0444,30.9721",
     "description": "فيلا فاخرة تطل مباشرة على ملاعب الجولف الممتدة، بتصميم معماري كلاسيكي يضمن الإضاءة الطبيعية والتهوية المتقاطعة لجميع الأجنحة.",
     "images": [
-      "assets/images/properties/prop-terrace.svg",
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-interior.svg"
+      "assets/images/properties/villa-pool.jpg",
+      "assets/images/properties/villa-sunset.jpg",
+      "assets/images/properties/interior-luxury.jpg"
     ],
     "features": [
       "إطلالة صف أول على ملاعب الجولف",
@@ -220,9 +220,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0512,30.9540",
     "description": "تاون هاوس زاوية Corner يتمتع بحديقة على شكل حرف L وإطلالة مزدوجة على الممشى الأخضر، مع بنتهاوس علوي متعدد الاستخدامات.",
     "images": [
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-interior.svg",
-      "assets/images/properties/prop-terrace.svg"
+      "assets/images/properties/villa-modern.jpg",
+      "assets/images/properties/villa-contemporary.jpg",
+      "assets/images/properties/interior-luxury.jpg"
     ],
     "features": [
       "موقع Corner بحديقة جانبية وخلفية",
@@ -253,9 +253,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0381,30.9822",
     "description": "وحدة أرضية مميزة تم بيعها بالكامل ضمن المرحلة الأولى من مشروع سولاريس بارك، وتُعرض في المحفظة كمرجع لمستوى التشطيب والقيمة السوقية.",
     "images": [
-      "assets/images/properties/prop-interior.svg",
-      "assets/images/properties/prop-terrace.svg",
-      "assets/images/properties/prop-exterior.svg"
+      "assets/images/properties/villa-contemporary.jpg",
+      "assets/images/properties/interior-luxury.jpg",
+      "assets/images/properties/villa-modern.jpg"
     ],
     "features": [
       "حديقة خاصة بمساحة 85 متر مربع",
@@ -285,9 +285,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0221,31.0014",
     "description": "تاون هاوس عائلي جاهز للسكن الفوري في موقع حيوي بالشيخ زايد، مزود بجميع وحدات التكييف وخزائن الحائط والمطبخ المجهز.",
     "images": [
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-interior.svg",
-      "assets/images/properties/prop-terrace.svg"
+      "assets/images/properties/villa-modern.jpg",
+      "assets/images/properties/interior-luxury.jpg",
+      "assets/images/properties/villa-pool.jpg"
     ],
     "features": [
       "مطبخ مجهز بالكامل بالأجهزة الكهربائية",
@@ -317,9 +317,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0480,30.9610",
     "description": "بنتهاوس دوبلكس يحتل الطابقين الأخيرين مع تراس سماوي Sky Terrace يمنح رؤية 360 درجة على الحدائق المركزية وملاعب الجولف.",
     "images": [
-      "assets/images/properties/prop-terrace.svg",
-      "assets/images/properties/prop-interior.svg",
-      "assets/images/properties/prop-exterior.svg"
+      "assets/images/properties/villa-pool.jpg",
+      "assets/images/properties/interior-luxury.jpg",
+      "assets/images/properties/villa-contemporary.jpg"
     ],
     "features": [
       "تراس بانورامي مجهز ببرجولة خشبية وجاكوزي",
@@ -349,9 +349,9 @@
     "mapUrl": "https://maps.google.com/?q=29.9985,31.7340",
     "description": "شقة عصرية في أكثر مناطق العاصمة الإدارية طلباً بجوار الحي الدبلوماسي، تعمل بالكامل بنظام التحكم الذكي في الإضاءة والتكييف والستائر.",
     "images": [
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-interior.svg",
-      "assets/images/properties/prop-terrace.svg"
+      "assets/images/properties/villa-contemporary.jpg",
+      "assets/images/properties/interior-luxury.jpg",
+      "assets/images/properties/villa-modern.jpg"
     ],
     "features": [
       "تحكم ذكي عبر الهاتف في الإضاءة والتكييف",
@@ -381,9 +381,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0131,31.7482",
     "description": "موقع تجاري استراتيجي في الطابق الأرضي بمواجهة ساحة المشاة الرئيسية في منطقة الـ CBD، مناسب للعلامات التجارية الفاخرة والمصارف.",
     "images": [
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-terrace.svg",
-      "assets/images/properties/prop-interior.svg"
+      "assets/images/properties/commercial-hq.jpg",
+      "assets/images/properties/interior-luxury.jpg",
+      "assets/images/properties/villa-contemporary.jpg"
     ],
     "features": [
       "واجهة عرض زجاجية بطول 11 متراً",
@@ -413,9 +413,9 @@
     "mapUrl": "https://maps.google.com/?q=30.0195,31.7602",
     "description": "مكتب إداري جاهز للتشغيل الفوري في قلب الحي المالي بجوار المقر الرئيسي للبنوك، يضم مكتب رئيس مجلس إدارة وغرفة اجتماعات و4 مكاتب عمل.",
     "images": [
-      "assets/images/properties/prop-interior.svg",
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-terrace.svg"
+      "assets/images/properties/interior-luxury.jpg",
+      "assets/images/properties/commercial-hq.jpg",
+      "assets/images/properties/villa-modern.jpg"
     ],
     "features": [
       "فرش مكتبي إيطالي وغرفة اجتماعات مجهزة بشاشات عرض",
@@ -445,9 +445,9 @@
     "mapUrl": "https://maps.google.com/?q=29.9890,31.7510",
     "description": "دوبلكس رحب بتصميم عصري يطل على امتداد النهر الأخضر، مع نوافذ ممتدة من الأرض حتى السقف وشرفات واسعة في كلا الطابقين.",
     "images": [
-      "assets/images/properties/prop-terrace.svg",
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-interior.svg"
+      "assets/images/properties/villa-modern.jpg",
+      "assets/images/properties/interior-luxury.jpg",
+      "assets/images/properties/villa-contemporary.jpg"
     ],
     "features": [
       "إطلالة بانورامية مفتوحة لا تُحجب",
@@ -477,9 +477,9 @@
     "mapUrl": "https://maps.google.com/?q=30.9782,28.7420",
     "description": "فيلا ساحلية استثنائية على مصطبة مرتفعة تمنح رؤية مباشرة لمياه البحر الفيروزية مع مسبح Infinity خاص وممر مباشر إلى الشاطئ الرملي.",
     "images": [
-      "assets/images/properties/prop-terrace.svg",
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-interior.svg"
+      "assets/images/properties/villa-sunset.jpg",
+      "assets/images/properties/villa-pool.jpg",
+      "assets/images/properties/interior-luxury.jpg"
     ],
     "features": [
       "إطلالة بحرية صف أول بانورامية 180 درجة",
@@ -510,9 +510,9 @@
     "mapUrl": "https://maps.google.com/?q=31.1820,27.8450",
     "description": "تاون هاوس في قلب رأس الحكمة يطل مباشرة على بحيرة كريستالية قابلة للسباحة، مع حديقة خاصة تتصل بشاطئ اللاجون الرملي.",
     "images": [
-      "assets/images/properties/prop-exterior.svg",
-      "assets/images/properties/prop-terrace.svg",
-      "assets/images/properties/prop-interior.svg"
+      "assets/images/properties/villa-modern.jpg",
+      "assets/images/properties/villa-sunset.jpg",
+      "assets/images/properties/interior-luxury.jpg"
     ],
     "features": [
       "شاطئ لاجون رملي خاص أمام الحديقة مباشرة",
@@ -542,9 +542,9 @@
     "mapUrl": "https://maps.google.com/?q=31.1790,27.8510",
     "description": "وحدة مصيفية مخدومة فندقياً تطل على المارينا وحمامات السباحة المتدرجة، مثالية للاستثمار السياحي والعائد الإيجاري المرتفع.",
     "images": [
-      "assets/images/properties/prop-interior.svg",
-      "assets/images/properties/prop-terrace.svg",
-      "assets/images/properties/prop-exterior.svg"
+      "assets/images/properties/villa-pool.jpg",
+      "assets/images/properties/villa-sunset.jpg",
+      "assets/images/properties/interior-luxury.jpg"
     ],
     "features": [
       "مفروشة بالكامل بإدارة فندقية عالمية",
@@ -574,9 +574,9 @@
     "mapUrl": "https://maps.google.com/?q=30.9810,28.7380",
     "description": "جناح ساحلي فسيح من 3 غرف نوم على بُعد خطوات من الشاطئ، مجهز لإقامة العائلات طوال العام مع تدفئة مركزية وخدمات منتجع متكاملة.",
     "images": [
-      "assets/images/properties/prop-terrace.svg",
-      "assets/images/properties/prop-interior.svg",
-      "assets/images/properties/prop-exterior.svg"
+      "assets/images/properties/villa-sunset.jpg",
+      "assets/images/properties/interior-luxury.jpg",
+      "assets/images/properties/villa-pool.jpg"
     ],
     "features": [
       "على بُعد 120 متراً من الشاطئ الرملي",

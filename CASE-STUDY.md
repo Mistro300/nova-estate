@@ -58,7 +58,7 @@
 
 > *(استبدل القيم التالية بالروابط الحقيقية ونتيجة فحص Lighthouse الفعلية بعد النشر)*
 
-- **رابط المعاينة الحية (Live Demo HTTPS):** `https://nova-estate.pages.dev` *(أو الرابط النهائي الذي تمنحه Cloudflare Pages)*
+- **رابط المعاينة الحية (Live Demo HTTPS):** https://nova-estate.pages.dev/
 - **رابط الكود المصدري (GitHub Repository):** `https://github.com/Mistro300/nova-estate`
 - **تقرير أداء Lighthouse:**
   - *تاريخ وظروف الاختبار:* يُسجَّل بعد تشغيل Lighthouse في نافذة Chrome Incognito على رابط الإنتاج الفعلي (Desktop / Mobile).

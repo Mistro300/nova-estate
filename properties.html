@@ -194,6 +194,11 @@
               <!-- Price Range Filter (EGP) -->
               <div class="form-group">
                 <span class="form-label">نطاق السعر (EGP)</span>
+                <div class="filter-price-track" aria-hidden="true">
+                  <span class="filter-price-track__fill"></span>
+                  <span class="filter-price-track__thumb"></span>
+                </div>
+                <p class="filter-price-caption num-tabular">EGP 8,500,000 — 42,000,000 EGP</p>
                 <div class="filter-range-row">
                   <div>
                     <label for="filter-min-price" class="sr-only">أقل سعر بالجنيه</label>
@@ -202,7 +207,7 @@
                       id="filter-min-price"
                       name="minPrice"
                       class="form-control num-tabular"
-                      placeholder="من (مثال: 500000)"
+                      placeholder="من (8,500,000)"
                       min="0"
                       step="100000"
                     >
@@ -214,7 +219,7 @@
                       id="filter-max-price"
                       name="maxPrice"
                       class="form-control num-tabular"
-                      placeholder="إلى (مثال: 45000000)"
+                      placeholder="إلى (42,000,000)"
                       min="0"
                       step="100000"
                     >
@@ -242,10 +247,16 @@
                 >
               </div>
 
-              <!-- Minimum Bedrooms Filter -->
+              <!-- Minimum Bedrooms Filter (Quick-Select Pills + Select) -->
               <div class="form-group">
-                <label for="filter-bedrooms" class="form-label">عدد غرف النوم (على الأقل)</label>
-                <select id="filter-bedrooms" name="bedrooms" class="form-select">
+                <label for="filter-bedrooms" class="form-label">عدد الغرف</label>
+                <div class="bedroom-pills" role="group" aria-label="اختيار سريع لعدد الغرف">
+                  <button type="button" class="bedroom-pill num-tabular" data-bed-val="2" aria-pressed="false">2</button>
+                  <button type="button" class="bedroom-pill num-tabular" data-bed-val="3" aria-pressed="false">3</button>
+                  <button type="button" class="bedroom-pill num-tabular" data-bed-val="4" aria-pressed="false">4</button>
+                  <button type="button" class="bedroom-pill num-tabular" data-bed-val="5" aria-pressed="false">5+</button>
+                </div>
+                <select id="filter-bedrooms" name="bedrooms" class="form-select sr-only">
                   <option value="">غير محدد (يشمل الإداري والتجاري)</option>
                   <option value="2">2 غرف نوم فأكثر</option>
                   <option value="3">3 غرف نوم فأكثر</option>

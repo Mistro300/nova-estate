@@ -121,8 +121,8 @@
 
         <!-- 3. PROPERTY DETAIL CONTENT (Revealed when valid property ID loads) -->
         <div id="property-detail-content" hidden>
-          <!-- Property Header -->
-          <header class="property-header">
+          <!-- Dark Navy Property Header Band (Matching Screen 3 Mockup) -->
+          <header class="property-header property-header--navy">
             <div class="property-header__main">
               <div class="property-header__badges" id="property-badges"></div>
               <h1 class="property-header__title" id="property-title">عنوان العقار</h1>
@@ -132,51 +132,54 @@
                 </svg>
                 <span id="property-location">المدينة — الحي</span>
               </p>
+              <div class="property-header__price-inline">
+                <span class="property-header__price" id="property-price">0 EGP</span>
+                <span class="property-header__sqm num-tabular" id="property-price-per-sqm">0 EGP / m²</span>
+              </div>
             </div>
 
-            <div class="property-header__price-box">
-              <div class="property-header__price" id="property-price">0 EGP</div>
-              <div class="property-header__sqm" id="property-price-per-sqm">متوسط سعر المتر: 0 EGP / m²</div>
-              <div class="property-header__actions">
-                <button
-                  type="button"
-                  class="btn btn--outline btn--sm"
-                  id="property-fav-btn"
-                  aria-pressed="false"
-                >
-                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
-                    <use href="assets/icons/sprite.svg#icon-heart"></use>
-                  </svg>
-                  <span id="property-fav-label">حفظ في المفضلة</span>
-                </button>
-                <button
-                  type="button"
-                  class="btn btn--ghost btn--sm"
-                  id="property-share-btn"
-                >
-                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
-                    <use href="assets/icons/sprite.svg#icon-share"></use>
-                  </svg>
-                  <span id="property-share-label">نسخ الرابط</span>
-                </button>
-              </div>
+            <div class="property-header__actions-stack">
+              <button
+                type="button"
+                class="btn btn--primary btn--sm"
+                id="property-fav-btn"
+                aria-pressed="false"
+              >
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-heart"></use>
+                </svg>
+                <span id="property-fav-label">حفظ في المفضلة</span>
+              </button>
+              <button
+                type="button"
+                class="btn btn--outline-light btn--sm"
+                id="property-share-btn"
+              >
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false">
+                  <use href="assets/icons/sprite.svg#icon-share"></use>
+                </svg>
+                <span id="property-share-label">نسخ الرابط</span>
+              </button>
             </div>
           </header>
 
-          <!-- Interactive Gallery -->
+          <!-- Interactive Gallery (Main Image + Captioned Thumbnails Row + Expand Button) -->
           <div class="gallery" aria-label="معرض صور العقار">
             <div class="gallery__main">
               <img
-                src="assets/images/placeholder-property.svg"
+                src="assets/images/properties/villa-sunset.jpg"
                 alt="صورة العقار الرئيسية"
                 class="gallery__main-img"
                 id="gallery-main-img"
                 width="1200"
                 height="675"
               >
+            </div>
+            <div class="gallery__bottom-bar">
+              <div class="gallery__thumbs" id="gallery-thumbs" role="list" aria-label="مصغرات الصور"></div>
               <button
                 type="button"
-                class="gallery__expand-btn"
+                class="btn btn--outline btn--sm gallery__expand-inline"
                 id="gallery-expand-btn"
                 aria-label="فتح الصورة في وضع التكبير Lightbox"
               >
@@ -186,7 +189,6 @@
                 <span>تكبير المعرض</span>
               </button>
             </div>
-            <div class="gallery__thumbs" id="gallery-thumbs" role="list" aria-label="مصغرات الصور"></div>
           </div>
 
           <!-- Two-Column Detail Layout -->
@@ -196,11 +198,10 @@
               <!-- Full Specs Card -->
               <article class="detail-card" aria-labelledby="specs-heading">
                 <h2 class="detail-card__title" id="specs-heading">
-                  <svg class="icon icon--md" aria-hidden="true" focusable="false">
-                    <use href="assets/icons/sprite.svg#icon-building"></use>
-                  </svg>
                   <span>المواصفات الكاملة للوحدة</span>
                 </h2>
+                <!-- Top 4 Cream Highlight Boxes matching Screen 3 -->
+                <div class="metrics-highlight-grid" id="property-top-metrics"></div>
                 <div class="specs-grid" id="property-specs-grid"></div>
               </article>
 
@@ -258,21 +259,18 @@
               </article>
             </div>
 
-            <!-- Sidebar Column: Installment Calculator + Viewing Appointment Request -->
+            <!-- Sidebar Column: Dark Navy Installment Calculator + Viewing Appointment Request -->
             <aside class="detail-stack" aria-label="أدوات التمويل وطلب المعاينة">
-              <!-- Interactive Installment Calculator -->
-              <section class="calc-card" aria-labelledby="calc-heading">
-                <h2 class="detail-card__title" id="calc-heading">
-                  <svg class="icon icon--md" aria-hidden="true" focusable="false">
-                    <use href="assets/icons/sprite.svg#icon-calculator"></use>
-                  </svg>
-                  <span>حاسبة الأقساط التقديرية (Demo)</span>
+              <!-- Interactive Installment Calculator (Dark Navy & Gold Card matching Screen 3) -->
+              <section class="calc-card calc-card--navy" aria-labelledby="calc-heading">
+                <h2 class="calc-card__title" id="calc-heading">
+                  <span>حاسبة الأقساط التقديرية</span>
                 </h2>
 
                 <div class="calc-controls">
                   <div>
                     <div class="calc-slider-header">
-                      <label for="calc-down-range">نسبة مقدم التعاقد (10% – 50%)</label>
+                      <label for="calc-down-range">مقدم التعاقد 10% - 50%</label>
                       <span class="calc-slider-val" id="calc-down-percent">15%</span>
                     </div>
                     <input
@@ -288,7 +286,7 @@
 
                   <div>
                     <div class="calc-slider-header">
-                      <label for="calc-years-range">مدة التقسيط (1 – 10 سنوات)</label>
+                      <label for="calc-years-range">مدة التقسيط 1 - 10 سنوات</label>
                       <span class="calc-slider-val" id="calc-years-label">7 سنوات</span>
                     </div>
                     <input
@@ -309,7 +307,7 @@
                     <strong class="num-tabular" id="calc-total-price">0 EGP</strong>
                   </div>
                   <div class="calc-results__row">
-                    <span>قيمة دفعة المقدم:</span>
+                    <span>مقدم التعاقد:</span>
                     <strong class="num-tabular" id="calc-down-amount">0 EGP</strong>
                   </div>
                   <div class="calc-results__row">
@@ -317,25 +315,22 @@
                     <strong class="num-tabular" id="calc-remaining-amount">0 EGP</strong>
                   </div>
                   <div class="calc-results__row">
-                    <span>القسط ربع السنوي التقديري:</span>
+                    <span>القسط ربع السنوي:</span>
                     <strong class="num-tabular" id="calc-quarterly-amount">0 EGP</strong>
                   </div>
                   <div class="calc-results__row calc-results__row--highlight">
-                    <span>القسط الشهري التقديري:</span>
+                    <span>القسط الشهري:</span>
                     <strong class="num-tabular" id="calc-monthly-amount">0 EGP</strong>
                   </div>
                 </div>
 
-                <div class="demo-notice">
-                  <svg class="icon icon--sm" aria-hidden="true" focusable="false">
-                    <use href="assets/icons/sprite.svg#icon-info"></use>
-                  </svg>
-                  <span>حسابات تقديرية تجريبية بأقساط متساوية بدون فوائد بنكية؛ تخضع خطة السداد النهائية لشروط المطور العقاري.</span>
-                </div>
+                <button type="button" class="btn btn--primary btn--full" id="calc-scroll-to-viewing">
+                  <span>طلب معاينة للوحدة</span>
+                </button>
               </section>
 
               <!-- Demo Viewing Appointment Form -->
-              <section class="detail-card" aria-labelledby="viewing-heading">
+              <section class="detail-card" id="viewing-appointment-section" aria-labelledby="viewing-heading">
                 <h2 class="detail-card__title" id="viewing-heading">
                   <svg class="icon icon--md" aria-hidden="true" focusable="false">
                     <use href="assets/icons/sprite.svg#icon-calendar"></use>
